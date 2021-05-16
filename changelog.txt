@@ -1,0 +1,6 @@
+---------------------------------------------------------------------------------------------------
+Version: 0.0.1
+Date: 2021-05-16
+  Features:
+    - Tungsten added to game.
+    - Compatible with space exploration, krastorio2, deadlock stacking/crating, etc.
