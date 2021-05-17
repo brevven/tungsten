@@ -1,4 +1,4 @@
-Fair warning, this is currently an "alpha" release, there may be bugs.
+Fair warning, this is currently an "alpha" release, there may be bugs, technology deadlocks, or other issues.
 
 Adds wolframite (mineable tungsten ore), tungsten plates, tungsten carbide, and rocket engine nozzles to factorio.
 Modifies several recipes to use new resources and intermediates. 
