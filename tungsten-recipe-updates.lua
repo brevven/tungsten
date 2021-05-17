@@ -91,7 +91,7 @@ if mods["Krastorio2"] then
   util.add_prerequisite("tungsten-processing", "kr-mineral-water-gathering")
   util.remove_prerequisite("kr-mineral-water-gathering", "fluid-handling")
 
-  -- engines come later with Tungten.
+  -- engines come later with Tungsten.
   util.replace_ingredient("kr-filtration-plant", "engine-unit", "pipe")
 
   -- Heat related
@@ -103,7 +103,8 @@ if mods["Krastorio2"] then
   util.add_ingredient("matter-research-data", "tungsten-plate", 5)
 
   -- Ammunition
-  util.replace_ingredient("piercing-magazine", "steel-plate", "tungsten-plate")
+  util.replace_ingredient("piercing-rounds-magazine", "steel-plate", "tungsten-plate")
+  util.replace_ingredient("piercing-shotgun-shell", "steel-plate", "tungsten-plate")
   util.replace_ingredient("armor-piercing-rifle-magazine", "steel-plate", "tungsten-plate")
   util.replace_ingredient("armor-piercing-anti-material-rifle-magazine", "steel-plate", "tungsten-plate")
   util.replace_ingredient("basic-railgun-shell", "steel-plate", "tungsten-plate")
