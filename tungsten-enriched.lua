@@ -72,51 +72,6 @@ data:extend({
       result_count = 5,
       order = "b[tungsten-plate]-b[enriched-tungsten-plate]"
   },	
-  {
-      type = "technology",
-      name = "enriched-tungsten",
-      icons =
-      {
-        {
-          icon =   "__Krastorio2__/graphics/technologies/enriched-ores.png",
-          icon_size = 256,
-          tint = { a=1.0, b=0.75, r=0.75, g=0.75 }
-        },
-        {
-          icon = "__bztungsten__/graphics/icons/enriched-tungsten.png",
-          icon_size = 64,
-          scale = 2,
-          shift = {48, 48}
-        }
-      },
-      effects =
-      {
-        {
-          type = "unlock-recipe",
-          recipe = "enriched-tungsten"
-        },
-        {
-          type = "unlock-recipe",
-          recipe = "enriched-tungsten-plate"
-        },
-        {
-          type = "unlock-recipe",
-          recipe = "dirty-water-filtration-tungsten",
-        }
-      },
-      prerequisites = {"kr-enriched-ores", util.tungsten_processing},
-      unit =
-      {
-        count = 150,
-        ingredients = 
-        {
-                  {"automation-science-pack", 1},
-                  {"logistic-science-pack", 1},
-                  {"chemical-science-pack", 1}
-        },
-        time = 30
-      }
-  },
 	{
 		type = "recipe",
 		name = "dirty-water-filtration-tungsten",
