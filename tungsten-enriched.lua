@@ -56,7 +56,7 @@ data:extend({
       icons =
       {
         { icon = "__bztungsten__/graphics/icons/tungsten-plate.png", icon_size = 64, icon_mipmaps = 3, },
-        { icon = "__bztungsten__/graphics/icons/enriched-tungsten.png", icon_size = 64},
+        { icon = "__bztungsten__/graphics/icons/enriched-tungsten.png", icon_size = 64, scale=0.25, shift= {-8, -8}},
       },
       category = "smelting",
       energy_required = 16,
