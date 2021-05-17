@@ -71,6 +71,8 @@ util.add_ingredient("LargeLamp", "tungsten-plate", 1)
 util.add_ingredient("StadiumLamp", "tungsten-plate", 10)
 util.set_tech_recipe("optics-2", {{"automation-science-pack", 1}, {"logistic-science-pack", 1}})
 util.set_tech_recipe("bright-lamp", {{"automation-science-pack", 1}, {"logistic-science-pack", 1}})
+util.add_ingredient("deadlock-large-lamp", "tungsten-plate", 2)
+util.add_ingredient("deadlock-floor-lamp", "tungsten-plate", 2)
 
 
 ---- K2
