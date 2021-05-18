@@ -17,4 +17,6 @@ See changelog.txt
 - [snouz](https://mods.factorio.com/user/snouz) (alpha graphics borrowed from Titanium mod)
 
 
-### Localization
+#### Localization
+
+- [Spectrus1702](https://github.com/Spectrus1702) (ru)
