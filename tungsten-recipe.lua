@@ -1,6 +1,6 @@
 -- Lead smelting
 
-local util = require("__bztungsten__.util");
+local util = require("__bztungsten__.tungsten-util");
 
 data:extend({
   { type = "recipe-category", name = "smelting-carbon"},

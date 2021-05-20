@@ -1,4 +1,4 @@
-local util = require("__bztungsten__.util");
+local util = require("__bztungsten__.tungsten-util");
 
 -- Lamps
 util.add_prerequisite("optics", "tungsten-processing")

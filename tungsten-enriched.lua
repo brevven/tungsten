@@ -1,5 +1,5 @@
 -- Enriched Titanium for Krastorio2
-local util = require("__bztungsten__.util");
+local util = require("__bztungsten__.tungsten-util");
 
 if mods["Krastorio2"] then
 data:extend({

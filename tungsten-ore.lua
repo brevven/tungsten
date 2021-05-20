@@ -1,6 +1,7 @@
 local resource_autoplace = require('resource-autoplace');
+local noise = require('noise');
 
-local util = require("__bztungsten__.util");
+local util = require("__bztungsten__.tungsten-util");
 
 if mods["FactorioExtended-Plus-Core"] then
   util.remove_raw("item", "tungsten-ore")
