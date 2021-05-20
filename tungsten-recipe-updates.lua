@@ -155,3 +155,43 @@ if mods["aai-industry"]then
   util.add_ingredient("area-mining-drill", "tungsten-carbide", 8)
 end
   
+if mods["WeaponPack"] then
+  util.replace_ingredient("5,56x45", "iron-plate", "tungsten-plate")
+  util.replace_ingredient("5,45x39", "iron-plate", "tungsten-plate")
+  util.replace_ingredient("7,62x51", "iron-plate", "tungsten-plate")
+  util.replace_ingredient("5,7 × 28", "iron-plate", "tungsten-plate")
+  util.replace_ingredient("12gauge", "iron-plate", "tungsten-plate")
+  util.replace_ingredient("45acp", "iron-plate", "tungsten-plate")
+end
+
+if mods["More_Ammo"] then
+  util.replace_ingredient("acid-ammo-recipe", "iron-plate", "tungsten-plate")
+  util.replace_ingredient("fire-ammo-recipe", "iron-plate", "tungsten-plate")
+  util.replace_ingredient("fmj-ammo-recipe", "iron-plate", "tungsten-plate")
+  util.replace_ingredient("he-ammo-recipe", "iron-plate", "tungsten-plate")
+end
+-- rampant arsenal
+util.add_ingredient("suppression-cannon-item-rampant-arsenal", "tungsten-plate", 30)
+
+util.add_ingredient("orbital-ion-cannon", "rocket-engine-nozzle", 12)
+
+-- vortik's deep core mining
+util.add_ingredient("vtk-deepcore-mining-moho", "tungsten-carbide", 10)
+util.add_ingredient("vtk-deepcore-mining-drone", "tungsten-carbide", 1)
+util.add_ingredient("vtk-deepcore-mining-drill", "tungsten-carbide", 20)
+util.add_ingredient("vtk-deepcore-mining-drill-advanced", "tungsten-carbide", 50)
+
+
+-- Asteroid mining
+function startswith(s, start)
+   return string.sub(s, 1, string.len(start))==start
+end
+
+if mods["Asteroid_Mining"] then
+  for i, recipe in pairs(data.raw.recipe) do 
+    if startswith(recipe.name, "miner-module") then
+      util.add_ingredient(recipe.name, "tungsten-carbide", 20)
+      util.add_ingredient(recipe.name, "rocket-engine-nozzle", 12)
+    end
+  end
+end

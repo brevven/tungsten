@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.0.5
+Date: 2021-05-18
+  Features:
+    - Compatibility: Orbital Ion Cannon, Weapon Pack, More Ammo, Rampant Arsenal
+    - Partial compatibility: Asteroid mining (mining module recipes only, asteroids coming later)
+    - Partial compatibility: VortiK's Deep Core Mining (drill recipes only, mining coming later)
+---------------------------------------------------------------------------------------------------
 Version: 0.0.4
 Date: 2021-05-18
   Features:
