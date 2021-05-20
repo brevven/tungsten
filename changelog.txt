@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.0.7
+Date: 2021-05-20
+  Features:
+    - Optional advanced carbon furnace for megabase tungsten carbide production
+  Changes:
+    - Wolframite is richer, farther from the start (no change within 1000 tiles)
+  Fixes:
+    - Aircraft afterburner recipe
+---------------------------------------------------------------------------------------------------
 Version: 0.0.6
 Date: 2021-05-19
   Features:
