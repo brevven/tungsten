@@ -86,3 +86,10 @@ data:extend({
   },
 })
 
+-- Wolframite becomes 20% richer past 1000 tiles, 60% richer past 10000 tiles
+local richness = data.raw.resource["tungsten-ore"].autoplace.richness_expression  
+data.raw.resource["tungsten-ore"].autoplace.richness_expression = 
+  richness * noise.if_else_chain(
+      noise.less_than(noise.distance_from(noise.var("x"), noise.var("y"), noise.var("starting_positions")), noise.to_noise_expression(1000)), 1,
+      noise.less_than(noise.distance_from(noise.var("x"), noise.var("y"), noise.var("starting_positions")), noise.to_noise_expression(10000)), 1.2,
+      1.6)
