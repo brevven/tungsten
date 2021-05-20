@@ -57,7 +57,7 @@ util.add_ingredient("atomic-bomb", "tungsten-plate", 1)
 
 -- Airplanes
 util.add_prerequisite("afterburner", "rocketry")
-util.add_ingredient("afterburner", "rocket-engine-nozzle", 1)
+util.add_ingredient("aircraft-afterburner", "rocket-engine-nozzle", 1)
 
 -- Jetpack
 util.add_prerequisite("jetpack-1", "rocketry")
