@@ -182,6 +182,51 @@ util.add_ingredient("vtk-deepcore-mining-drill", "tungsten-carbide", 20)
 util.add_ingredient("vtk-deepcore-mining-drill-advanced", "tungsten-carbide", 50)
 
 
+
+
+-- Advanced Mining Drills
+util.add_ingredient("advanced-mining-drill", "tungsten-carbide", 1)
+util.add_prerequisite("advanced-mining-drill", "tungsten-processing")
+util.add_ingredient("elite-mining-drill", "tungsten-carbide", 5)
+util.add_ingredient("ultimate-mining-drill", "tungsten-carbide", 10)
+
+-- Skandragon
+util.add_ingredient("skan-advanced-mining-drill", "tungsten-carbide", 4)
+util.add_ingredient("skan-elite-mining-drill", "tungsten-carbide", 4)
+util.add_ingredient("skan-ultimate-mining-drill", "tungsten-carbide", 4)
+
+-- Hiladdar
+util.add_ingredient("hsmd-electric-mining-drill-mk2", "tungsten-carbide", 3)
+util.add_ingredient("hsmd-electric-mining-drill-mk3", "tungsten-carbide", 3)
+util.add_ingredient("hsmd-electric-mining-drill-mk4", "tungsten-carbide", 3)
+util.add_ingredient("hsmd-electric-mining-drill-mk5", "tungsten-carbide", 3)
+util.add_ingredient("hsmd-electric-mining-drill-mk6", "tungsten-carbide", 3)
+
+
+-- Extended vanilla (and mk2)
+util.add_ingredient("electric-mining-drill-mk2", "tungsten-carbide", 10)
+util.add_ingredient("edrill-1to2", "tungsten-carbide", 10)
+util.add_ingredient("electric-mining-drill-mk3", "tungsten-carbide", 10)
+util.add_ingredient("electric-mining-drill-mk4", "tungsten-carbide", 10)
+util.add_ingredient("electric-mining-drill-mk5", "tungsten-carbide", 10)
+util.add_ingredient("electric-mining-drill-mk6", "tungsten-carbide", 10)
+
+-- Tiny
+util.add_ingredient("tiny-electric-mining-drill-1", "tungsten-carbide", 1)
+util.add_ingredient("tiny-electric-mining-drill-3", "tungsten-carbide", 2)
+util.add_ingredient("tiny-electric-mining-drill-5", "tungsten-carbide", 3)
+
+
+-- other mining drills
+util.add_ingredient("electric-mining-drill-lv2", "tungsten-carbide", 5)
+util.add_ingredient("advanced-electric-mining-drill", "tungsten-carbide", 10)
+util.add_ingredient("omega-drill", "tungsten-carbide", 25)
+util.add_ingredient("passive-furnace", "tungsten-carbide", 2)
+util.add_ingredient("quarry-mk3", "tungsten-carbide", 20)
+
+
+
+
 -- Asteroid mining
 function startswith(s, start)
    return string.sub(s, 1, string.len(start))==start
