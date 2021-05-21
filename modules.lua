@@ -11,6 +11,9 @@ if mods["space-exploration"] then
     table.insert(recipes, "enriched-tungsten-smelting-vulcanite")
   end
 end
+if data.raw.recipe["tungsten-carbide-coal"] then
+    table.insert(recipes, "tungsten-carbide-coal")
+end
 
 for i, recipe in pairs(recipes) do
   if data.raw.recipe[recipe] then

@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.0.8
+Date: 2021-05-20
+  Changes:
+    - Heat pipes now require tungsten plate
+    - AAI, if K2 not enabled, coal recipe for tungsten carbide
+  Features:
+    - Compatibility: superheater, expanded rocket payloads (recipes only)
+---------------------------------------------------------------------------------------------------
 Version: 0.0.7
 Date: 2021-05-20
   Features:
