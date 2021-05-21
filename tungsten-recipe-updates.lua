@@ -158,6 +158,10 @@ end
 
 util.replace_some_ingredient("superheater", "copper-plate", 10, "tungsten-plate", 10)
 
+-- Expanded rocket payloads
+util.add_ingredient("radioisotope-thermoelectric-generater", "tungsten-plate", 100)
+util.add_ingredient("satellite-thruster", "rocket-engine-nozzle", 12)
+
   
 if mods["WeaponPack"] then
   util.replace_ingredient("5,56x45", "iron-plate", "tungsten-plate")
@@ -184,7 +188,6 @@ util.add_ingredient("vtk-deepcore-mining-moho", "tungsten-carbide", 10)
 util.add_ingredient("vtk-deepcore-mining-drone", "tungsten-carbide", 1)
 util.add_ingredient("vtk-deepcore-mining-drill", "tungsten-carbide", 20)
 util.add_ingredient("vtk-deepcore-mining-drill-advanced", "tungsten-carbide", 50)
-
 
 
 
