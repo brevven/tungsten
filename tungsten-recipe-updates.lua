@@ -155,6 +155,9 @@ end
 if mods["aai-industry"]then
   util.add_ingredient("area-mining-drill", "tungsten-carbide", 8)
 end
+
+util.replace_some_ingredient("superheater", "copper-plate", 10, "tungsten-plate", 10)
+
   
 if mods["WeaponPack"] then
   util.replace_ingredient("5,56x45", "iron-plate", "tungsten-plate")
