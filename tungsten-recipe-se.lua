@@ -58,7 +58,6 @@ if mods["space-exploration"] then
       },
     },
     })
-    table.insert(data.raw.technology["se-processing-vulcanite"].effects, 
-        {type = "unlock-recipe", recipe= "tungsten-smelting-vulcanite"})
+    util.add_effect("se-processing-vulcanite", {type = "unlock-recipe", recipe= "tungsten-smelting-vulcanite"})
   end
 end
