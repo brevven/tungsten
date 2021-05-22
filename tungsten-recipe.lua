@@ -15,10 +15,10 @@ data:extend(
     order = "d[tungsten-plate]",
     icons = (mods["Krastorio2"] and
         {
-          { icon = "__bztungsten__/graphics/icons/tungsten-plate.png", icon_size = 64, icon_mipmaps = 3, },
-          { icon = "__bztungsten__/graphics/icons/tungsten-ore.png", icon_size = 64, icon_mipmaps = 3, scale=0.25, shift= {-8, -8}},
+          { icon = "__bztungsten__/graphics/icons/tungsten-plate.png", icon_size = 128, icon_mipmaps = 3, },
+          { icon = "__bztungsten__/graphics/icons/tungsten-ore.png", icon_size = 128, icon_mipmaps = 3, scale=0.25, shift= {-8, -8}},
         } or {
-          { icon = "__bztungsten__/graphics/icons/tungsten-plate.png", icon_size = 64, icon_mipmaps = 3, },
+          { icon = "__bztungsten__/graphics/icons/tungsten-plate.png", icon_size = 128, icon_mipmaps = 3, },
         }
 ),
     normal = (mods["Krastorio2"] and
@@ -47,7 +47,7 @@ data:extend(
     type = "item",
     name = util.tungsten_plate,
     icon = "__bztungsten__/graphics/icons/tungsten-plate.png",
-    icon_size = 64, icon_mipmaps = 3,
+    icon_size = 128, icon_mipmaps = 3,
     subgroup = "raw-material",
     order = "b[tungsten-plate]",
     stack_size = util.get_stack_size(100)
@@ -88,7 +88,7 @@ data:extend(
   mods["TheBigFurnace"] and {
     type = "recipe",
     name = "big-tungsten-plate",
-    icons = { { icon = "__bztungsten__/graphics/icons/tungsten-plate.png", icon_size = 64 }, },
+    icons = { { icon = "__bztungsten__/graphics/icons/tungsten-plate.png", icon_size = 128 }, },
     subgroup = "raw-material",
     category = "big-smelting",
     order = "d[tungsten-plate]",

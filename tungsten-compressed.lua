@@ -24,7 +24,7 @@ if simpleCompress then
       tungstenRecipe.results = {
         {type="item", name = "tungsten-plate", amount=simpleCompress.CompressedSmeltAmount},
       }
-      tungstenRecipe.icons = {{ icon = "__bztungsten__/graphics/icons/tungsten-plate.png", icon_size = 64 }}
+      tungstenRecipe.icons = {{ icon = "__bztungsten__/graphics/icons/tungsten-plate.png", icon_size = 128 }}
       tungstenRecipe.subgroup = "raw-material"
       tungstenRecipe.order = "d[tungsten-plate]"
     end

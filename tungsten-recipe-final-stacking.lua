@@ -4,7 +4,7 @@ local util = require("__bztungsten__.tungsten-util");
 
 if deadlock then
   deadlock.add_stack("tungsten-ore",  "__bztungsten__/graphics/icons/stacked/tungsten-ore-stacked.png", "deadlock-stacking-2", 64)
-  deadlock.add_stack("tungsten-plate", "__bztungsten__/graphics/icons/stacked/tungsten-plate-stacked.png" , "deadlock-stacking-2", 64)
+  deadlock.add_stack("tungsten-plate", "__bztungsten__/graphics/icons/stacked/tungsten-plate-stacked.png" , "deadlock-stacking-2", 128)
   deadlock.add_stack("tungsten-carbide", "__bztungsten__/graphics/icons/stacked/tungsten-carbide-stacked.png" , "deadlock-stacking-2", 128)
   deadlock.add_stack("rocket-engine-nozzle", "__bztungsten__/graphics/icons/stacked/rocket-engine-nozzle-stacked.png" , "deadlock-stacking-2", 128)
   if mods["Krastorio2"] then

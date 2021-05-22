@@ -223,6 +223,10 @@ util.add_ingredient("tiny-electric-mining-drill-1", "tungsten-carbide", 1)
 util.add_ingredient("tiny-electric-mining-drill-3", "tungsten-carbide", 2)
 util.add_ingredient("tiny-electric-mining-drill-5", "tungsten-carbide", 3)
 
+-- TA Miners
+util.add_ingredient("crust_extractor", "tungsten-carbide", 50)
+util.add_ingredient("moho_extractor", "tungsten-carbide", 50)
+util.add_ingredient("mantle_extractor", "tungsten-carbide", 100)
 
 -- other mining drills
 util.add_ingredient("electric-mining-drill-lv2", "tungsten-carbide", 5)
@@ -231,6 +235,12 @@ util.add_ingredient("omega-drill", "tungsten-carbide", 25)
 util.add_ingredient("passive-furnace", "tungsten-carbide", 2)
 util.add_ingredient("quarry-mk3", "tungsten-carbide", 20)
 
+
+-- Geothermal
+util.replace_some_ingredient("geothermal-heat-exchanger", "copper-plate", 120, "tungsten-plate", 120)
+
+-- FastFurnaces
+util.replace_some_ingredient("reika-fast-electric-mining-drill", "steel-plate", 10, "tungsten-carbide", 10)
 
 
 

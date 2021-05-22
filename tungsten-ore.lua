@@ -44,7 +44,7 @@ data:extend({
       order = "b-z",
       base_density = 4,
       has_starting_area_placement = false,
-      regular_rq_factor_multiplier = 1.0
+      regular_rq_factor_multiplier = 1.2
     },
 
     stage_counts = {15000, 9500, 5500, 2900, 1300, 400, 150, 80},
