@@ -16,7 +16,7 @@ data:extend(
     icons = (mods["Krastorio2"] and
         {
           { icon = "__bztungsten__/graphics/icons/tungsten-plate.png", icon_size = 128, icon_mipmaps = 3, },
-          { icon = "__bztungsten__/graphics/icons/tungsten-ore.png", icon_size = 128, icon_mipmaps = 3, scale=0.25, shift= {-8, -8}},
+          { icon = "__bztungsten__/graphics/icons/tungsten-ore.png", icon_size = 64, icon_mipmaps = 3, scale=0.25, shift= {-8, -8}},
         } or {
           { icon = "__bztungsten__/graphics/icons/tungsten-plate.png", icon_size = 128, icon_mipmaps = 3, },
         }

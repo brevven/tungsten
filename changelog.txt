@@ -3,6 +3,8 @@ Version: 0.0.11
 Date: 2021-05-23
   Features:
     - New thumbnail
+  Fixes:
+    - Fix for mixed icons issue introduced in 0.0.10
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.10
 Date: 2021-05-22
