@@ -156,6 +156,7 @@ if mods["aai-industry"]then
   util.add_ingredient("area-mining-drill", "tungsten-carbide", 8)
 end
 
+
 util.replace_some_ingredient("superheater", "copper-plate", 10, "tungsten-plate", 10)
 
 -- Expanded rocket payloads
@@ -182,6 +183,14 @@ end
 util.add_ingredient("suppression-cannon-item-rampant-arsenal", "tungsten-plate", 30)
 
 util.add_ingredient("orbital-ion-cannon", "rocket-engine-nozzle", 12)
+
+-- additional turrets
+util.add_ingredient("at-acidthrower-turret", "tungsten-plate", 5)
+util.replace_some_ingredient("small-cannon-shell", "steel-plate", 2, "tungsten-plate", 2)
+util.add_ingredient("small-rocket","rocket-engine-nozzle", 1)
+util.add_ingredient("Artillery_mk1_Ammo", "tungsten-plate", 2)
+
+
 
 -- vortik's deep core mining
 util.add_ingredient("vtk-deepcore-mining-moho", "tungsten-carbide", 10)
@@ -210,13 +219,22 @@ util.add_ingredient("hsmd-electric-mining-drill-mk5", "tungsten-carbide", 3)
 util.add_ingredient("hsmd-electric-mining-drill-mk6", "tungsten-carbide", 3)
 
 
--- Extended vanilla (and mk2)
-util.add_ingredient("electric-mining-drill-mk2", "tungsten-carbide", 10)
+-- Extended vanilla (and mk2), Zombies
+local tcamount = 10
+if mods["zombiesextended-core"] then
+  tcamount = 2
+  util.add_ingredient("electric-mining-drill-mk1", "tungsten-carbide", tcamount)
+  util.add_ingredient("assembling-machine-mk1", "tungsten-carbide", tcamount)
+  util.add_ingredient("assembling-machine-mk2", "tungsten-carbide", tcamount)
+  util.add_ingredient("assembling-machine-mk3", "tungsten-carbide", tcamount)
+  util.add_ingredient("heat-pipe-mk1", "tungsten-plate", 1)
+end
+util.add_ingredient("electric-mining-drill-mk2", "tungsten-carbide", tcamount)
 util.add_ingredient("edrill-1to2", "tungsten-carbide", 10)
-util.add_ingredient("electric-mining-drill-mk3", "tungsten-carbide", 10)
-util.add_ingredient("electric-mining-drill-mk4", "tungsten-carbide", 10)
-util.add_ingredient("electric-mining-drill-mk5", "tungsten-carbide", 10)
-util.add_ingredient("electric-mining-drill-mk6", "tungsten-carbide", 10)
+util.add_ingredient("electric-mining-drill-mk3", "tungsten-carbide", tcamount)
+util.add_ingredient("electric-mining-drill-mk4", "tungsten-carbide", tcamount)
+util.add_ingredient("electric-mining-drill-mk5", "tungsten-carbide", tcamount)
+util.add_ingredient("electric-mining-drill-mk6", "tungsten-carbide", tcamount)
 
 -- Tiny
 util.add_ingredient("tiny-electric-mining-drill-1", "tungsten-carbide", 1)
@@ -241,6 +259,16 @@ util.replace_some_ingredient("geothermal-heat-exchanger", "copper-plate", 120, "
 
 -- FastFurnaces
 util.replace_some_ingredient("reika-fast-electric-mining-drill", "steel-plate", 10, "tungsten-carbide", 10)
+
+-- Nuclear furnaces
+util.add_ingredient("nuclear-furnace-3", "tungsten-plate", 200)
+
+-- Mega Furnace
+util.add_ingredient("mega-furnace", "tungsten-plate", 5)
+
+-- Mundas
+util.add_ingredient("munda_big_machine", "tungsten-carbide", 32)
+util.add_prerequisite("munda_big_machine", "tungsten-processing")
 
 
 
