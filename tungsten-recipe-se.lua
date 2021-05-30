@@ -20,7 +20,7 @@ if mods["space-exploration"] then
         {name = "se-vulcanite-block", amount = 1},
       },
       results = {
-        {name = util.tungsten_plate, amount = 12},
+        {name = util.tungsten_plate, amount = 8},
       },
       icons =
       {
@@ -40,16 +40,16 @@ if mods["space-exploration"] then
       name = "tungsten-smelting-vulcanite",
       category = "smelting",
       order = "d[tungsten-plate]",
-      energy_required = 48,
+      energy_required = 16,
       enabled = false,
       always_show_made_in = true,
       allow_as_intermediate = false,
       ingredients = {
-        {name = "tungsten-ore", amount = 20},
+        {name = "tungsten-ore", amount = 16},
         {name = "se-vulcanite-block", amount = 1},
       },
       results = {
-        {name = util.tungsten_plate, amount = 30},
+        {name = util.tungsten_plate, amount = 12},
       },
       icons =
       {

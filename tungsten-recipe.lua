@@ -24,8 +24,8 @@ data:extend(
     normal = (mods["Krastorio2"] and
         {
           enabled = false,
-          energy_required = 16,
-          ingredients = {{"tungsten-ore", 10}},
+          energy_required = 24,
+          ingredients = {{"tungsten-ore", 15}},
           result = util.tungsten_plate,
           result_count = 5,
         } or
@@ -140,7 +140,7 @@ data:extend({
         } or
         {
           enabled = false,
-          energy_required = 25.6,
+          energy_required = 64/3,
           ingredients = {{"tungsten-plate", 5}},
           result = "tungsten-carbide",
           result_count = 2,

@@ -59,17 +59,17 @@ data:extend({
         { icon = "__bztungsten__/graphics/icons/enriched-tungsten.png", icon_size = 64, scale=0.25, shift= {-8, -8}},
       },
       category = "smelting",
-      energy_required = 16,
+      energy_required = 24,
       enabled = false,
       always_show_made_in = true,
       always_show_products = true,
       allow_productivity = true,
       ingredients = 
       {
-        {"enriched-tungsten", 5}
+        {"enriched-tungsten", 15}
       },
       result = "tungsten-plate",
-      result_count = 5,
+      result_count = 10,
       order = "b[tungsten-plate]-b[enriched-tungsten-plate]"
   },	
 	{
