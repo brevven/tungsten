@@ -13,3 +13,15 @@ for i, entity in pairs(data.raw.furnace) do
      table.insert(entity.crafting_categories,"smelting-carbon")
   end
 end 
+
+if mods["space-exploration"] then 
+  -- Organization
+  data.raw.item["tungsten-plate"].subgroup = "plates"
+  data.raw.recipe["tungsten-plate"].subgroup = "plates"
+end
+
+
+-- SE + K2: Keep radar at red science level
+util.remove_prerequisite("kr-radar", "optics")
+util.add_prerequisite("kr-radar", "electricity")
+
