@@ -184,6 +184,22 @@ util.add_ingredient("suppression-cannon-item-rampant-arsenal", "tungsten-plate",
 
 util.add_ingredient("orbital-ion-cannon", "rocket-engine-nozzle", 12)
 
+-- King Jo
+util.replace_ingredient("kj_pak_penetration", "steel-plate", "tungsten-plate")
+util.replace_ingredient("kj_bolt", "steel-plate", "tungsten-plate")
+util.replace_ingredient("kj_40kdreadnought_normal", "steel-plate", "tungsten-plate")
+util.replace_some_ingredient("kj_predator_normal", "steel-plate", 1, "tungsten-plate", 1)
+util.replace_some_ingredient("kj_lemanruss_normal", "steel-plate", 3, "tungsten-plate", 3)
+util.replace_some_ingredient("kj_baneblade_normal", "steel-plate", 3, "tungsten-plate", 3)
+util.replace_ingredient("kj_75kwk40_penetration", "steel-plate", "tungsten-plate")
+util.replace_ingredient("kj_120kwk_penetration", "steel-plate", "tungsten-plate")
+util.replace_ingredient("kj_120kwk_penetration_highexplosive", "steel-plate", "tungsten-plate")
+util.replace_ingredient("kj_280SK34_penetration", "steel-plate", "tungsten-plate")
+util.add_ingredient("bolt75mk2","tungsten-plate", 1)
+util.add_ingredient("bolt100mk2","tungsten-plate", 1)
+util.replace_ingredient("bolt75kraken", "steel-plate", "tungsten-plate")
+util.replace_ingredient("bolt100kraken", "steel-plate", "tungsten-plate")
+
 -- additional turrets
 util.add_ingredient("at-acidthrower-turret", "tungsten-plate", 5)
 util.replace_some_ingredient("small-cannon-shell", "steel-plate", 2, "tungsten-plate", 2)
