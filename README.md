@@ -20,3 +20,4 @@ See changelog.txt
 #### Localization
 
 - [Spectrus1702](https://github.com/Spectrus1702) (ru)
+- [Sakuro](https://github.com/sakuro) (ja)
