@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.0.14
+Date: 2021-05-26
+  Features:
+    - Additional turrets compatibility
+    - 5dims compatibility
+  Changes:
+    - Decrease icon file size a bit
+---------------------------------------------------------------------------------------------------
 Version: 0.0.13
 Date: 2021-05-24
   Changes:
