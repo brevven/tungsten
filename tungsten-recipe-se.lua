@@ -3,7 +3,8 @@ local util = require("__bztungsten__.tungsten-util");
 
 if mods["space-exploration"] then
   se_delivery_cannon_recipes["tungsten-ore"] = {name= "tungsten-ore"}
-  se_delivery_cannon_recipes["tungsten_plate"] = {name= "tungsten_plate"}
+  se_delivery_cannon_recipes["tungsten-plate"] = {name= "tungsten-plate"}
+  se_delivery_cannon_recipes["tungsten-carbide"] = {name= "tungsten-carbide"}
   if mods["Krastorio2"] then
     data:extend({
     {
