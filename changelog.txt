@@ -15,7 +15,7 @@ Version: 0.0.15
 Date: 2021-05-27
   Changes:
     - Tweaked tungsten plate and tungsten carbide recipes
-  Features
+  Features:
     - 5dims tungsten carbide recipe
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.14
