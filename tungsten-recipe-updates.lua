@@ -39,6 +39,7 @@ util.replace_some_ingredient("heat-exchanger", "copper-plate", 50, "tungsten-pla
 util.replace_some_ingredient("heat-pipe", "copper-plate", 10, "tungsten-plate", 10)
 util.add_ingredient("nuclear-reactor", "tungsten-plate", 500)
 util.add_ingredient("flamethrower-turret", "tungsten-plate", 5)
+util.add_ingredient("nuclear-fuel", "tungsten-plate", 1)
 
 -- Rocket engine nozzle techs
 util.add_effect("rocketry", { type =  "unlock-recipe", recipe = "rocket-engine-nozzle" })
