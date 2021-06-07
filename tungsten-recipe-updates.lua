@@ -102,7 +102,11 @@ if mods["Krastorio2"] then
   util.replace_some_ingredient("kr-advanced-furnace", "rare-metals", 40, "tungsten-plate", 40)
 
   -- Other
-  util.add_ingredient("matter-research-data", "tungsten-plate", 5)
+  if mods.bzzirconium then
+    util.add_ingredient("matter-research-data", "zirconium-tungstate", 5)
+  else
+    util.add_ingredient("matter-research-data", "tungsten-plate", 5)
+  end
 
   -- Ammunition
   util.replace_ingredient("piercing-rounds-magazine", "steel-plate", "tungsten-plate")
@@ -136,8 +140,13 @@ if mods["space-exploration"] then
   -- Data
   util.add_ingredient("se-electromagnetic-field-data", "tungsten-plate", 1)
   util.add_product("se-electromagnetic-field-data", {name="tungsten-plate", amount=1, probability=0.95})
-  util.add_ingredient("se-hot-thermodynamics-data", "tungsten-plate", 1)
-  util.add_product("se-hot-thermodynamics-data", {name="tungsten-plate", amount=1, probability=0.50})
+  if mods.bzzirconium then
+    util.add_ingredient("se-hot-thermodynamics-data", "zirconium-tungstate", 1)
+    util.add_product("se-hot-thermodynamics-data", {name="zirconium-tungstate", amount=1, probability=0.50})
+  else
+    util.add_ingredient("se-hot-thermodynamics-data", "tungsten-plate", 1)
+    util.add_product("se-hot-thermodynamics-data", {name="tungsten-plate", amount=1, probability=0.50})
+  end
   util.add_ingredient("se-particle-beam-shielding-data", "tungsten-plate", 1)
   util.add_product("se-particle-beam-shielding-data", {name="tungsten-plate", amount=1, probability=0.20})
 

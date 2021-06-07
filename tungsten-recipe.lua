@@ -1,4 +1,4 @@
--- Lead smelting
+-- Tungsten smelting
 
 local util = require("__bztungsten__.tungsten-util");
 
@@ -155,6 +155,12 @@ data:extend({
   },
 })
 
+local nozzle_i = {{"tungsten-plate", 2}}
+
+if mods.bzzirconium then
+  table.insert(nozzle_i, {"zirconium-plate", 1})
+end
+
 data:extend({
   {
     type = "item",
@@ -174,20 +180,11 @@ data:extend({
     icons = {
           { icon = "__bztungsten__/graphics/icons/rocket-engine-nozzle.png", icon_size = 128}
     },
-    normal = 
-    {
-      enabled = false,
-      energy_required = 5,
-      ingredients = {{"tungsten-plate", 2}},
-      result = "rocket-engine-nozzle",
-    },
-    expensive =
-    {
-      enabled = false,
-      energy_required = 5,
-      ingredients = {{"tungsten-plate", 3}},
-      result = "rocket-engine-nozzle",
-    }
+    enabled = false,
+    energy_required = 5 * #nozzle_i,
+    ingredients = nozzle_i,
+    result = "rocket-engine-nozzle",
+    result_count = #nozzle_i
   }
 })
 
