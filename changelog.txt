@@ -1,6 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.0
 Date: 2021-06-06
+  Features:
+    - Menu simulation
   Fixes:
     - Delivery cannon recipes
   Changes:
