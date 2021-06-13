@@ -56,6 +56,10 @@ util.add_ingredient("artillery-shell", "rocket-engine-nozzle", 3)
 util.add_ingredient("atomic-bomb", "rocket-engine-nozzle", 7)
 util.add_ingredient("atomic-bomb", "tungsten-plate", 1)
 
+-- Nuclear Fuel
+util.add_ingredient("atomic-bomb-pu", "rocket-engine-nozzle", 7)
+util.add_ingredient("atomic-bomb-pu", "tungsten-plate", 1)
+
 
 -- Airplanes
 util.add_prerequisite("afterburner", "rocketry")
@@ -162,7 +166,7 @@ if mods["space-exploration"] then
   util.add_ingredient("se-space-mechanical-laboratory", "tungsten-carbide", 40)
   util.add_ingredient("se-recyling-facility", "tungsten-carbide", 10)
 end
-if mods["aai-industry"]then
+if mods["aai-industry"] then
   util.add_ingredient("area-mining-drill", "tungsten-carbide", 8)
 end
 
