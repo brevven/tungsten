@@ -315,3 +315,12 @@ if mods["Asteroid_Mining"] then
     end
   end
 end
+
+
+-- Rampant Industry
+util.add_ingredient("advanced-chemical-plant-rampant-industry", "tungsten-carbide", 10)
+util.add_ingredient("advanced-oil-refinery-rampant-industry", "tungsten-carbide", 10)
+
+
+-- Endgame Combat
+util.replace_ingredient("sulfur-bullet-magazine", "copper-plate", "tungsten-plate")
