@@ -96,6 +96,12 @@ end
 
 function add_ingredient(recipe, ingredient, quantity)
   if recipe ~= nil and recipe.ingredients ~= nil then
+    for i, existing in pairs(recipe.ingredients) do
+      if existing[1] == ingredient or existing.name == ingredient then
+        log("Not adding "..ingredient.." -- duplicate")
+        return
+      end
+    end
     table.insert(recipe.ingredients, {ingredient, quantity})
   end
 end
@@ -127,6 +133,12 @@ end
 
 function replace_ingredient(recipe, old, new)
 	if recipe ~= nil and recipe.ingredients ~= nil then
+    for i, existing in pairs(recipe.ingredients) do
+      if existing[1] == new or existing.name == new then
+        log("Not adding "..new.." -- duplicate")
+        return
+      end
+    end
 		for i, ingredient in pairs(recipe.ingredients) do 
 			if ingredient.name == old then ingredient.name = new end
 			if ingredient[1] == old then ingredient[1] = new end
@@ -170,6 +182,12 @@ end
 
 function replace_some_ingredient(recipe, old, old_amount, new, new_amount)
 	if recipe ~= nil and recipe.ingredients ~= nil then
+    for i, existing in pairs(recipe.ingredients) do
+      if existing[1] == new or existing.name == new then
+        log("Not adding "..new.." -- duplicate")
+        return
+      end
+    end
 		for i, ingredient in pairs(recipe.ingredients) do 
 			-- For final fixes
 			if ingredient.name == old then
