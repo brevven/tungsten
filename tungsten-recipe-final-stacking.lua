@@ -1,6 +1,6 @@
 -- Deadlock stacking recipes
 
-local util = require("__bztungsten__.tungsten-util");
+local util = require("__bztungsten__.data-util");
 
 if deadlock then
   deadlock.add_stack("tungsten-ore",  "__bztungsten__/graphics/icons/stacked/tungsten-ore-stacked.png", "deadlock-stacking-2", 64)

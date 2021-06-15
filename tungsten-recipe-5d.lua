@@ -1,4 +1,4 @@
-local util = require("__bztungsten__.tungsten-util");
+local util = require("__bztungsten__.data-util");
 
 if mods["5dim_core"] then
 

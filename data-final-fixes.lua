@@ -5,7 +5,7 @@ require("tungsten-recipe-final-rrr")
 
 
 
-local util = require("__bztungsten__.tungsten-util");
+local util = require("__bztungsten__.data-util");
 
 -- Only burners can make tungsten carbide in vanilla
 for i, entity in pairs(data.raw.furnace) do

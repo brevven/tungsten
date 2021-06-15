@@ -1,6 +1,6 @@
 -- Tungsten smelting
 
-local util = require("__bztungsten__.tungsten-util");
+local util = require("__bztungsten__.data-util");
 
 data:extend({
   { type = "recipe-category", name = "smelting-carbon"},

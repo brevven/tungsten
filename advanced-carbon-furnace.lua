@@ -1,5 +1,5 @@
 local futil = require("util");
-local util = require("__bztungsten__.tungsten-util");
+local util = require("__bztungsten__.data-util");
 
 if util.get_setting("bztungsten-advanced-carbon-furnace") == "yes" and not mods["Krastorio2"] then
   log("Using advanced carbon furnace")

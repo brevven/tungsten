@@ -1,5 +1,5 @@
 -- Additional recipes if Space Exploration mod is enabled
-local util = require("__bztungsten__.tungsten-util");
+local util = require("__bztungsten__.data-util");
 
 if mods["space-exploration"] then
   se_delivery_cannon_recipes["tungsten-ore"] = {name= "tungsten-ore"}
