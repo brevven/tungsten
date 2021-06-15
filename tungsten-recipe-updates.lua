@@ -301,6 +301,11 @@ util.add_ingredient("munda_big_machine", "tungsten-carbide", 32)
 util.add_prerequisite("munda_big_machine", "tungsten-processing")
 
 
+-- Realistic reactors
+util.add_ingredient("realistic-reactor", "tungsten-plate", 500)
+util.add_ingredient("breeder-reactor", "tungsten-plate", 500)
+
+
 
 -- Asteroid mining
 function startswith(s, start)
