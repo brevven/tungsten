@@ -1,5 +1,6 @@
 local util = {}
 
+util.name = "bztungsten"
 util.tungsten_ore = "tungsten-ore"
 util.tungsten_plate = "tungsten-plate"
 
@@ -20,6 +21,13 @@ function util.get_setting(name)
     return nil
   end
   return settings.startup[name].value
+end
+
+local bypass = {}
+if util.get_setting(util.name.."-recipe-bypass") then 
+  for recipe in string.gmatch(util.get_setting(util.name.."-recipe-bypass"), '[^",%s]+') do
+    bypass[recipe] = true
+  end
 end
 
 function util.get_stack_size(default) 
@@ -87,6 +95,7 @@ end
 
 -- Add a given quantity of ingredient to a given recipe
 function util.add_ingredient(recipe_name, ingredient, quantity)
+  if bypass[recipe_name] then return end
   if data.raw.recipe[recipe_name] then
     add_ingredient(data.raw.recipe[recipe_name], ingredient, quantity)
     add_ingredient(data.raw.recipe[recipe_name].normal, ingredient, quantity)
@@ -124,6 +133,7 @@ end
 
 -- Replace one ingredient with another in a recipe
 function util.replace_ingredient(recipe_name, old, new)
+  if bypass[recipe_name] then return end
   if data.raw.recipe[recipe_name] then
     replace_ingredient(data.raw.recipe[recipe_name], old, new)
     replace_ingredient(data.raw.recipe[recipe_name].normal, old, new)
@@ -148,6 +158,7 @@ end
 
 -- Remove an ingredient from a recipe
 function util.remove_ingredient(recipe_name, old)
+  if bypass[recipe_name] then return end
   if data.raw.recipe[recipe_name] then
     remove_ingredient(data.raw.recipe[recipe_name], old)
     remove_ingredient(data.raw.recipe[recipe_name].normal, old)
@@ -173,6 +184,7 @@ end
 
 -- Replace an amount of an ingredient in a recipe. Keep at least 1 of old.
 function util.replace_some_ingredient(recipe_name, old, old_amount, new, new_amount)
+  if bypass[recipe_name] then return end
   if data.raw.recipe[recipe_name] then
     replace_some_ingredient(data.raw.recipe[recipe_name], old, old_amount, new, new_amount)
     replace_some_ingredient(data.raw.recipe[recipe_name].normal, old, old_amount, new, new_amount)
@@ -202,5 +214,58 @@ function replace_some_ingredient(recipe, old, old_amount, new, new_amount)
 	end
 end
 
+-- multiply the cost, energy, and results of a recipe by a multiple
+function util.multiply_recipe(recipe_name, multiple)
+  if bypass[recipe_name] then return end
+  if data.raw.recipe[recipe_name] then
+    multiply_recipe(data.raw.recipe[recipe_name], multiple)
+    multiply_recipe(data.raw.recipe[recipe_name].normal, multiple)
+    multiply_recipe(data.raw.recipe[recipe_name].expensive, multiple)
+	end
+end
+
+function multiply_recipe(recipe, multiple)
+  if recipe then
+    if recipe.energy_required then
+      recipe.energy_required = recipe.energy_required * multiple
+    end
+    if recipe.result_count then
+      recipe.result_count = recipe.result_count * multiple
+    end
+    if recipe.results then
+      for i, result in pairs(recipe.results) do
+        if result.name then
+          if result.amount then
+            result.amount = result.amount * multiple
+          end
+          if result.amount_min ~= nil then
+            result.amount_min = result.amount_min * multiple
+            result.amount_max = result.amount_max * multiple
+          end
+          if result.catalyst_amount then
+            result.catalyst_amount = result.catalyst_amount * multiple
+          end
+        end
+        if result[1] then
+          result[2] = result[2] * multiple
+        end
+      end
+    end
+    if not recipe.results and not recipe.result_count then
+      -- implicit one item result
+      recipe.result_count = multiple
+    end
+    if recipe.ingredients then
+      for i, ingredient in pairs(recipe.ingredients) do
+        if ingredient.name then
+          ingredient.amount = ingredient.amount * multiple
+        end
+        if ingredient[1] then
+          ingredient[2] = ingredient[2] * multiple
+        end
+      end
+    end
+  end
+end
 
 return util
