@@ -8,6 +8,13 @@ if bobmods and bobmods.lib and bobmods.lib.recipe and bobmods.lib.tech then
   util.tungsten_processing = "bz-tungsten-processing"
 end
 
+function util.fe_plus(sub)
+  if mods["FactorioExtended-Plus-"..sub] then
+    return true
+  end
+end
+
+
 function util.get_setting(name)
   if settings.startup[name] == nil then
     return nil

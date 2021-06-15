@@ -329,3 +329,9 @@ util.add_ingredient("advanced-oil-refinery-rampant-industry", "tungsten-carbide"
 
 -- Endgame Combat
 util.replace_ingredient("sulfur-bullet-magazine", "copper-plate", "tungsten-plate")
+
+
+-- FE+
+if util.fe_plus("Machines") then
+  util.add_ingredient("oil-refinery-mk2", "tungsten-carbide", 1)
+end

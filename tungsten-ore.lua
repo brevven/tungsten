@@ -3,10 +3,6 @@ local noise = require('noise');
 
 local util = require("__bztungsten__.tungsten-util");
 
-if mods["FactorioExtended-Plus-Core"] then
-  util.remove_raw("item", "tungsten-ore")
-end
-
 data:extend({
 	{
     type = "autoplace-control",
