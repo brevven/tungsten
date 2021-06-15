@@ -3,6 +3,8 @@ Version: 0.2.0
 Date: 2021-06-16
   Features:
     - Recipe bypass setting
+  Changes:
+    - When K2 is enabled, add wolframite to starting area
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.5
 Date: 2021-06-15
