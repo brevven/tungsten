@@ -89,5 +89,5 @@ if mods["aai-industry"] and not mods["Krastorio2"] then
     },
   }
   })
-  util.add_effect("tungsten-processing", {type = "unlock-recipe", recipe= "tungsten-carbide-coal"})
+  util.add_effect(util.tungsten_processing, {type = "unlock-recipe", recipe= "tungsten-carbide-coal"})
 end

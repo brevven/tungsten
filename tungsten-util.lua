@@ -3,6 +3,11 @@ local util = {}
 util.tungsten_ore = "tungsten-ore"
 util.tungsten_plate = "tungsten-plate"
 
+util.tungsten_processing = "tungsten-processing"
+if bobmods and bobmods.lib and bobmods.lib.recipe and bobmods.lib.tech then
+  util.tungsten_processing = "bz-tungsten-processing"
+end
+
 function util.get_setting(name)
   if settings.startup[name] == nil then
     return nil

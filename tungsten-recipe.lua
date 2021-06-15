@@ -54,7 +54,7 @@ data:extend(
   },
   {
     type = "technology",
-    name = "tungsten-processing",
+    name = util.tungsten_processing,
     icon_size = 256, icon_mipmaps = 4,
     icon = "__bztungsten__/graphics/technology/tungsten-processing.png",
     effects =

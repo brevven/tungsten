@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.1.3
+Date: 2021-06-15
+  Fixes:
+    - Fix load cycle error with SE+K2+Bobs Lib+Tungsten
+    - Try to prevent another potential issue with possible duplicate ingredients.
+---------------------------------------------------------------------------------------------------
 Version: 0.1.2
 Date: 2021-06-14
   Features:
