@@ -34,7 +34,7 @@ util.add_ingredient("engine-unit", "tungsten-plate", 1)
 
 -- Hot stuff
 util.add_prerequisite("advanced-materials-processing-2", util.tungsten_processing)
-util.replace_some_ingredient("electric-furnace", "stone-brick", 5, "tungsten-plate", 10)
+util.replace_some_ingredient("electric-furnace", "steel-plate", 5, "tungsten-plate", 5)
 util.replace_some_ingredient("heat-exchanger", "copper-plate", 50, "tungsten-plate", 50)
 util.replace_some_ingredient("heat-pipe", "copper-plate", 10, "tungsten-plate", 10)
 util.add_ingredient("nuclear-reactor", "tungsten-plate", 500)
