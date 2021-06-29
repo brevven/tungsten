@@ -3,6 +3,7 @@ Version: 0.2.2
 Date: 2021-06-16
   Features:
     - Polish locale, thanks to TheoMarque
+    - Ja locale update, thanks to Sakuro
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.1
 Date: 2021-06-16
