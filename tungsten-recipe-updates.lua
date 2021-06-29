@@ -335,3 +335,19 @@ util.replace_ingredient("sulfur-bullet-magazine", "copper-plate", "tungsten-plat
 if util.fe_plus("Machines") then
   util.add_ingredient("oil-refinery-mk2", "tungsten-carbide", 1)
 end
+
+-- Bob's machines
+util.add_ingredient("chemical-plant-2", "tungsten-carbide", 2)
+util.add_ingredient("chemical-plant-3", "tungsten-carbide", 2)
+util.add_ingredient("chemical-plant-4", "tungsten-carbide", 2)
+util.add_ingredient("electronics-machine-2", "tungsten-carbide", 1)
+util.add_ingredient("electronics-machine-3", "tungsten-carbide", 1)
+util.add_ingredient("oil-refinery-2", "tungsten-carbide", 1)
+util.add_ingredient("bob-mining-drill-2", "tungsten-carbide", 1)
+util.add_ingredient("bob-area-mining-drill-2", "tungsten-carbide", 1)
+util.add_ingredient("bob-mining-drill-2", "tungsten-carbide", 3)
+util.add_ingredient("bob-area-mining-drill-2", "tungsten-carbide", 3)
+util.add_ingredient("bob-mining-drill-2", "tungsten-carbide", 3)
+util.add_ingredient("bob-area-mining-drill-2", "tungsten-carbide", 3)
+
+
