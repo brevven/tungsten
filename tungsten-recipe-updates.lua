@@ -60,6 +60,10 @@ util.add_ingredient("atomic-bomb", "tungsten-plate", 1)
 util.add_ingredient("atomic-bomb-pu", "rocket-engine-nozzle", 7)
 util.add_ingredient("atomic-bomb-pu", "tungsten-plate", 1)
 
+-- Plutonium Energy
+util.add_ingredient("plutonium-atomic-bomb", "rocket-engine-nozzle", 7)
+util.add_ingredient("plutonium-atomic-bomb", "tungsten-plate", 1)
+util.add_ingredient("MOX-reactor", "tungsten-plate", 400)
 
 -- Airplanes
 util.add_prerequisite("afterburner", "rocketry")
@@ -280,6 +284,7 @@ util.add_ingredient("mantle_extractor", "tungsten-carbide", 100)
 util.add_ingredient("electric-mining-drill-lv2", "tungsten-carbide", 5)
 util.add_ingredient("advanced-electric-mining-drill", "tungsten-carbide", 10)
 util.add_ingredient("omega-drill", "tungsten-carbide", 25)
+util.add_ingredient("omega-drill-mk2", "tungsten-carbide", 50)
 util.add_ingredient("passive-furnace", "tungsten-carbide", 2)
 util.add_ingredient("quarry-mk3", "tungsten-carbide", 20)
 
