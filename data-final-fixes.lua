@@ -28,3 +28,6 @@ util.add_prerequisite("kr-radar", "electricity")
 
 -- SE don't gate tungsten
 util.remove_prerequisite("tungsten-processing", "se-material-science-pack-1")
+
+-- One more tier
+util.add_ingredient("omt-electric-mining-drill", "tungsten-carbide", 10)
