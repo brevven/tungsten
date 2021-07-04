@@ -16,8 +16,8 @@ See changelog.txt
 - [Gregersenpai](https://mods.factorio.com/user/Gregersenpai) for [early ideas](https://mods.factorio.com/mod/bztitanium/discussion/608eb5b4012c5f47810bf252)
 - [snouz](https://mods.factorio.com/user/snouz) (alpha graphics borrowed from Titanium mod)
 
-
 #### Localization
 
 - [Spectrus1702](https://github.com/Spectrus1702) (ru)
 - [Sakuro](https://github.com/sakuro) (ja)
+- [Yokmp](https://github.com/Yokmp) (de)
