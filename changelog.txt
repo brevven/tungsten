@@ -2,6 +2,8 @@
 Version: 0.3.0
 Date: 2021-07-06
   Features:
+    - Bob's MCI (bobplates) compatibility. If you use bob's library without bobplates, you might
+      Need to re-research tungsten processing. Nothing else should change.
     - Useful equipment compatibility
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.8

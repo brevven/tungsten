@@ -5,22 +5,46 @@ local util = require("__bztungsten__.data-util");
 data:extend({
   { type = "recipe-category", name = "smelting-carbon"},
 })
-data:extend(
-{
+
+if not mods.bobplates then
+data:extend({
+  {
+    type = "item",
+    name = "tungsten-carbide",
+    icon = "__bztungsten__/graphics/icons/tungsten-carbide.png",
+    icon_size = 128,
+    subgroup = "raw-material",
+    order = "z[tungsten-carbide]",
+    stack_size = util.get_stack_size(100)
+  },
+  {
+    type = "item",
+    name = util.tungsten_plate,
+    icon = "__bztungsten__/graphics/icons/tungsten-plate.png",
+    icon_size = 128, icon_mipmaps = 3,
+    subgroup = "raw-material",
+    order = "b[tungsten-plate]",
+    stack_size = util.get_stack_size(100)
+  }
+})
+end
+
+data:extend({
   {
     type = "recipe",
     name = util.tungsten_plate,
     category = "smelting",
     subgroup = "raw-material",
     order = "d[tungsten-plate]",
-    icons = (mods["Krastorio2"] and
-        {
+    icons = (mods["Krastorio2"] and {
           { icon = "__bztungsten__/graphics/icons/tungsten-plate.png", icon_size = 128, icon_mipmaps = 3, },
           { icon = "__bztungsten__/graphics/icons/tungsten-ore.png", icon_size = 64, icon_mipmaps = 3, scale=0.25, shift= {-8, -8}},
-        } or {
-          { icon = "__bztungsten__/graphics/icons/tungsten-plate.png", icon_size = 128, icon_mipmaps = 3, },
-        }
-),
+        } or mods.bobplates and {
+          { icon = "__bobplates__/graphics/icons/plate/tungsten-plate.png", icon_size = 32},
+        } or
+        {
+          { icon = "__bztungsten__/graphics/icons/tungsten-plate.png", icon_size = 128},
+        }),
     normal = (mods["Krastorio2"] and
         {
           enabled = false,
@@ -32,7 +56,7 @@ data:extend(
         {
           enabled = false,
           energy_required = 32/15,
-          ingredients = {{"tungsten-ore", 2}},
+          ingredients = {{"tungsten-ore", mods.bobplates and 4 or 2}},
           result = util.tungsten_plate,
         }),
     expensive =
@@ -44,19 +68,14 @@ data:extend(
     }
   },
   {
-    type = "item",
-    name = util.tungsten_plate,
-    icon = "__bztungsten__/graphics/icons/tungsten-plate.png",
-    icon_size = 128, icon_mipmaps = 3,
-    subgroup = "raw-material",
-    order = "b[tungsten-plate]",
-    stack_size = util.get_stack_size(100)
-  },
-  {
     type = "technology",
     name = util.tungsten_processing,
-    icon_size = 256, icon_mipmaps = 4,
-    icon = "__bztungsten__/graphics/technology/tungsten-processing.png",
+    icons = {{ icon =
+      mods.bobplates
+      and "__bobplates__/graphics/icons/technology/tungsten-processing.png"
+      or "__bztungsten__/graphics/technology/tungsten-processing.png",
+      icon_size = mods.bobplates and 64 or 256,
+    }},
     effects =
     {
       {
@@ -65,7 +84,7 @@ data:extend(
       },
       {
         type =  "unlock-recipe",
-        recipe = "tungsten-carbide",
+        recipe = util.tungsten_carbide_recipe,
       },
       mods["TheBigFurnace"] and {
         type = "unlock-recipe",
@@ -115,21 +134,15 @@ data:extend(
 
 data:extend({
   {
-    type = "item",
-    name = "tungsten-carbide",
-    icon = "__bztungsten__/graphics/icons/tungsten-carbide.png",
-    icon_size = 128,
-    subgroup = "raw-material",
-    order = "z[tungsten-carbide]",
-    stack_size = util.get_stack_size(100)
-  },
-  {
     type = "recipe",
-    name = "tungsten-carbide",
+    name = util.tungsten_carbide_recipe,
     category = (mods["Krastorio2"] and "smelting" or "smelting-carbon"),
     subgroup = "raw-material",
     order = "z[tungsten-carbide]",
-    icons = { { icon = "__bztungsten__/graphics/icons/tungsten-carbide.png", icon_size = 128} },
+    icons = { mods.bobplates and 
+      { icon = "__bobplates__/graphics/icons/plate/tungsten-carbide-plate.png", icon_size = 64}
+      or { icon = "__bztungsten__/graphics/icons/tungsten-carbide.png", icon_size = 128}
+    },
     normal = (mods["Krastorio2"] and
         {
           enabled = false,
