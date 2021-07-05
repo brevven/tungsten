@@ -381,3 +381,7 @@ util.add_ingredient("rfw-small-antimatter-rocket", "rocket-engine-nozzle", 1)
 
 -- Rocket Silo Construction
 util.add_ingredient("rsc-excavation-site", "tungsten-carbide", 100)
+
+
+-- Useful Equipment
+util.add_ingredient("craft-assistent", "tungsten-carbide", 1)
