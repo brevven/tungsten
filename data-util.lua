@@ -17,6 +17,15 @@ function util.fe_plus(sub)
   end
 end
 
+function util.fluid_amount()
+  if mods["Krastorio2"] then
+    local amt = util.get_setting("bztungsten-mining-fluid-amount-k2")
+    return amt and amt or 1
+  end
+  local amt = util.get_setting("bztungsten-mining-fluid-amount")
+  return amt and amt or 10
+end
+
 
 function util.get_setting(name)
   if settings.startup[name] == nil then
