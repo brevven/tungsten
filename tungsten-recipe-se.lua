@@ -62,7 +62,7 @@ if mods["space-exploration"] then
     util.add_effect("se-processing-vulcanite", {type = "unlock-recipe", recipe= "tungsten-smelting-vulcanite"})
   end
 end
-if mods["aai-industry"] and not mods["Krastorio2"] then
+if mods["aai-industry"] and not mods["Krastorio2"] and not mods.bzfoundry then
   data:extend({
     {
     type = "recipe",
@@ -77,14 +77,14 @@ if mods["aai-industry"] and not mods["Krastorio2"] then
     normal = {
       enabled = false,
       energy_required = 50,
-      ingredients = {{"tungsten-plate", 5}, {"coal", 1}},
+      ingredients = {{"tungsten-plate", 4}, {"coal", 1}},
       result = "tungsten-carbide",
       result_count = 2,
     },
     expensive = {
       enabled = false,
       energy_required = 50,
-      ingredients = {{"tungsten-plate", 5}, {"coal", 1}},
+      ingredients = {{"tungsten-plate", 4}, {"coal", 1}},
       result = "tungsten-carbide",
     },
   }
