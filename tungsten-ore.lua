@@ -28,7 +28,7 @@ data:extend({
       hardness = 1,
       mining_particle = "tungsten-ore-particle",
       mining_time = 2,
-      fluid_amount = util.fluid_amount(),
+      fluid_amount = util.me.fluid_amount(),
       required_fluid=(mods["Krastorio2"] and "mineral-water" or "water"),
       result = "tungsten-ore"
     },

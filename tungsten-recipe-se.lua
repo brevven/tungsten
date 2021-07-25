@@ -21,7 +21,7 @@ if mods["space-exploration"] then
         {name = "se-vulcanite-block", amount = 1},
       },
       results = {
-        {name = util.tungsten_plate, amount = 8},
+        {name = util.me.tungsten_plate, amount = 8},
       },
       icons =
       {
@@ -50,7 +50,7 @@ if mods["space-exploration"] then
         {name = "se-vulcanite-block", amount = 1},
       },
       results = {
-        {name = util.tungsten_plate, amount = 12},
+        {name = util.me.tungsten_plate, amount = 12},
       },
       icons =
       {
@@ -89,5 +89,5 @@ if mods["aai-industry"] and not mods["Krastorio2"] and not mods.bzfoundry then
     },
   }
   })
-  util.add_effect(util.tungsten_processing, {type = "unlock-recipe", recipe= "tungsten-carbide-coal"})
+  util.add_effect(util.me.tungsten_processing, {type = "unlock-recipe", recipe= "tungsten-carbide-coal"})
 end

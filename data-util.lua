@@ -1,43 +1,12 @@
+local me = require("me")
 local util = {}
 
-util.name = "bztungsten"
-util.tungsten_ore = "tungsten-ore"
-util.tungsten_plate = "tungsten-plate"
-util.tungsten_carbide_recipe = "tungsten-carbide"
-
-util.tungsten_processing = "tungsten-processing"
-if mods.bobplates then
-  util.tungsten_processing = "bz-tungsten-processing"
-  util.tungsten_carbide_recipe = "bz-tungsten-carbide"
-end
+util.me = me
+util.get_setting = util.me.get_setting
 
 function util.fe_plus(sub)
   if mods["FactorioExtended-Plus-"..sub] then
     return true
-  end
-end
-
-function util.fluid_amount()
-  if mods["Krastorio2"] then
-    local amt = util.get_setting("bztungsten-mining-fluid-amount-k2")
-    return amt and amt or 1
-  end
-  local amt = util.get_setting("bztungsten-mining-fluid-amount")
-  return amt and amt or 10
-end
-
-
-function util.get_setting(name)
-  if settings.startup[name] == nil then
-    return nil
-  end
-  return settings.startup[name].value
-end
-
-local bypass = {}
-if util.get_setting(util.name.."-recipe-bypass") then 
-  for recipe in string.gmatch(util.get_setting(util.name.."-recipe-bypass"), '[^",%s]+') do
-    bypass[recipe] = true
   end
 end
 
@@ -106,8 +75,8 @@ end
 
 -- Add a given quantity of ingredient to a given recipe
 function util.add_ingredient(recipe_name, ingredient, quantity)
-  if bypass[recipe_name] then return end
-  if data.raw.recipe[recipe_name] then
+  if me.bypass[recipe_name] then return end
+  if data.raw.recipe[recipe_name] and data.raw.item[ingredient] then
     add_ingredient(data.raw.recipe[recipe_name], ingredient, quantity)
     add_ingredient(data.raw.recipe[recipe_name].normal, ingredient, quantity)
     add_ingredient(data.raw.recipe[recipe_name].expensive, ingredient, quantity)
@@ -129,7 +98,7 @@ end
 -- Add a given quantity of product to a given recipe. 
 -- Only works for recipes with multiple products
 function util.add_product(recipe_name, product)
-  if data.raw.recipe[recipe_name] then
+  if data.raw.recipe[recipe_name] and data.raw.item[product] then
     add_product(data.raw.recipe[recipe_name], product)
     add_product(data.raw.recipe[recipe_name].normal, product)
     add_product(data.raw.recipe[recipe_name].expensive, product)
@@ -144,8 +113,8 @@ end
 
 -- Replace one ingredient with another in a recipe
 function util.replace_ingredient(recipe_name, old, new)
-  if bypass[recipe_name] then return end
-  if data.raw.recipe[recipe_name] then
+  if me.bypass[recipe_name] then return end
+  if data.raw.recipe[recipe_name] and data.raw.item[new] then
     replace_ingredient(data.raw.recipe[recipe_name], old, new)
     replace_ingredient(data.raw.recipe[recipe_name].normal, old, new)
     replace_ingredient(data.raw.recipe[recipe_name].expensive, old, new)
@@ -169,7 +138,7 @@ end
 
 -- Remove an ingredient from a recipe
 function util.remove_ingredient(recipe_name, old)
-  if bypass[recipe_name] then return end
+  if me.bypass[recipe_name] then return end
   if data.raw.recipe[recipe_name] then
     remove_ingredient(data.raw.recipe[recipe_name], old)
     remove_ingredient(data.raw.recipe[recipe_name].normal, old)
@@ -195,8 +164,8 @@ end
 
 -- Replace an amount of an ingredient in a recipe. Keep at least 1 of old.
 function util.replace_some_ingredient(recipe_name, old, old_amount, new, new_amount)
-  if bypass[recipe_name] then return end
-  if data.raw.recipe[recipe_name] then
+  if me.bypass[recipe_name] then return end
+  if data.raw.recipe[recipe_name] and data.raw.item[new] then
     replace_some_ingredient(data.raw.recipe[recipe_name], old, old_amount, new, new_amount)
     replace_some_ingredient(data.raw.recipe[recipe_name].normal, old, old_amount, new, new_amount)
     replace_some_ingredient(data.raw.recipe[recipe_name].expensive, old, old_amount, new, new_amount)
@@ -212,11 +181,9 @@ function replace_some_ingredient(recipe, old, old_amount, new, new_amount)
       end
     end
 		for i, ingredient in pairs(recipe.ingredients) do 
-			-- For final fixes
 			if ingredient.name == old then
         ingredient.amount = math.max(1, ingredient.amount - old_amount)
       end
-			-- For updates
 			if ingredient[1] == old then
         ingredient[2] = math.max(1, ingredient[2] - old_amount)
       end
@@ -227,7 +194,7 @@ end
 
 -- multiply the cost, energy, and results of a recipe by a multiple
 function util.multiply_recipe(recipe_name, multiple)
-  if bypass[recipe_name] then return end
+  if me.bypass[recipe_name] then return end
   if data.raw.recipe[recipe_name] then
     multiply_recipe(data.raw.recipe[recipe_name], multiple)
     multiply_recipe(data.raw.recipe[recipe_name].normal, multiple)
@@ -281,12 +248,66 @@ end
 
 -- Remove an element of type t and name from data.raw
 function util.remove_raw(t, name)
-  for i, elem in pairs(data.raw[t]) do
-    if elem.name == name then 
-      data.raw[t][i] = nil
-      break
+  if data.raw[t][name] then
+    for i, elem in pairs(data.raw[t]) do
+      if elem.name == name then 
+        data.raw[t][i] = nil
+        break
+      end
     end
   end
+end
+
+-- Multiply energy required
+function util.multiply_time(recipe, factor)
+  if me.bypass[recipe_name] then return end
+  if data.raw.recipe[recipe_name] then
+    multiply_time(data.raw.recipe[recipe_name], factor)
+    multiply_time(data.raw.recipe[recipe_name].normal, factor)
+    multiply_time(data.raw.recipe[recipe_name].expensive, factor)
+	end
+end
+
+function multiply_time(recipe, factor)
+  if recipe then
+    if recipe.energy_required then
+      recipe.energy_required = recipe.energy_required * factor
+    end
+  end
+end
+
+-- Set recipe category
+function util.set_category(recipe, category)
+   if me.bypass[recipe_name] then return end
+   if data.raw.recipe[recipe] then
+      data.raw.recipe[recipe].category = category
+   end
+end
+
+-- Set recipe subgroup
+function util.set_subgroup(recipe, subgroup)
+   if me.bypass[recipe_name] then return end
+   if data.raw.recipe[recipe] then
+      data.raw.recipe[recipe].subgroup = subgroup
+   end
+end
+
+function util.set_to_founding(recipe)
+  util.set_category(recipe, "founding")
+  util.set_subgroup(recipe, "foundry-intermediate")
+end
+
+-- Addc crafting category to an entity
+function util.add_crafting_category(entity_type, entity, category)
+   if data.raw[entity_type][entity] then
+      for i, existing in pairs(data.raw[entity_type][entity].crafting_categories) do
+        if existing == category then
+          log(entity.." not adding "..new.." -- duplicate")
+          return
+        end
+      end
+      table.insert(data.raw[entity_type][entity].crafting_categories, category)
+   end
 end
 
 return util

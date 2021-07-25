@@ -81,7 +81,7 @@ if mods["5dim_core"] then
           enabled = true,
           energy_required = 50,
           ingredients = {{"tungsten-dust", 85}},
-          result = util.tungsten_plate,
+          result = util.me.tungsten_plate,
           result_count = 50,
         },
         {
@@ -95,7 +95,7 @@ if mods["5dim_core"] then
           enabled = true,
           energy_required = 500,
           ingredients = {{"tungsten-plate", 85}},
-          result = util.tungsten_plate,
+          result = util.me.tungsten_plate,
           result_count = 20,
         }
   })

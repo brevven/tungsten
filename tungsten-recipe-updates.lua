@@ -1,7 +1,7 @@
 local util = require("__bztungsten__.data-util");
 
 -- Lamps
-util.add_prerequisite("optics", util.tungsten_processing)
+util.add_prerequisite("optics", util.me.tungsten_processing)
 util.set_tech_recipe("optics", {{"automation-science-pack", 1}, {"logistic-science-pack", 1}})
 util.add_ingredient("small-lamp", "tungsten-plate", 1)
 
@@ -11,14 +11,14 @@ util.add_ingredient("rail-signal", "small-lamp", 1)
 util.add_ingredient("rail-chain-signal", "small-lamp", 1)
 
 -- Ammunition
-util.add_prerequisite("military-2", util.tungsten_processing)
+util.add_prerequisite("military-2", util.me.tungsten_processing)
 util.replace_ingredient("piercing-rounds-magazine", "copper-plate", "tungsten-plate")
 util.replace_ingredient("piercing-shotgun-shell", "copper-plate", "tungsten-plate")
 util.replace_ingredient("cannon-shell", "copper-plate", "tungsten-plate")
 
 
 -- Tooling
-util.add_prerequisite("automation-2", util.tungsten_processing)
+util.add_prerequisite("automation-2", util.me.tungsten_processing)
 util.replace_some_ingredient("assembling-machine-2", "steel-plate", 1, "tungsten-carbide", 1)
 util.add_ingredient("assembling-machine-3", "tungsten-carbide", 4)
 util.add_ingredient("chemical-plant", "tungsten-carbide", 2)
@@ -28,12 +28,12 @@ util.add_ingredient("electric-furnace", "tungsten-carbide", 1)
 util.replace_ingredient("accumulator", "iron-plate", "tungsten-plate")
 util.add_ingredient("oil-refinery", "tungsten-plate", 1)
 util.add_ingredient("chemical-plant", "tungsten-plate", 1)
-util.add_prerequisite("engine", util.tungsten_processing)
+util.add_prerequisite("engine", util.me.tungsten_processing)
 util.add_ingredient("engine-unit", "tungsten-plate", 1)
 
 
 -- Hot stuff
-util.add_prerequisite("advanced-materials-processing-2", util.tungsten_processing)
+util.add_prerequisite("advanced-materials-processing-2", util.me.tungsten_processing)
 util.replace_some_ingredient("electric-furnace", "steel-plate", 5, "tungsten-plate", 5)
 util.replace_some_ingredient("heat-exchanger", "copper-plate", 50, "tungsten-plate", 50)
 util.replace_some_ingredient("heat-pipe", "copper-plate", 10, "tungsten-plate", 10)
@@ -45,7 +45,7 @@ util.add_ingredient("nuclear-fuel", "tungsten-plate", 1)
 -- Rocket engine nozzle techs
 util.add_effect("rocketry", { type =  "unlock-recipe", recipe = "rocket-engine-nozzle" })
 util.add_prerequisite("rocket-silo", "rocketry")
-if util.get_setting("bztungsten-avoid-military") == "yes" then
+if util.me.get_setting("bztungsten-avoid-military") == "yes" then
   util.set_tech_recipe("rocketry", {{"automation-science-pack", 1}, {"logistic-science-pack", 1}})
 end
 
@@ -93,13 +93,13 @@ if mods["Krastorio2"] then
   util.set_tech_recipe("optics", {{"basic-tech-card", 1}, {"automation-science-pack", 1}, {"logistic-science-pack", 1}})
   util.set_tech_recipe("oil-processing", {{"basic-tech-card", 1}, {"automation-science-pack", 1}, {"logistic-science-pack", 1}})
   util.set_tech_recipe("plastics", {{"basic-tech-card", 1}, {"automation-science-pack", 1}, {"logistic-science-pack", 1}})
-  if util.get_setting("bztungsten-avoid-military") == "yes" then
+  if util.me.get_setting("bztungsten-avoid-military") == "yes" then
     util.set_tech_recipe("rocketry", {{"basic-tech-card", 1}, {"automation-science-pack", 1}, {"logistic-science-pack", 1}})
   end
   util.remove_prerequisite("kr-sentinel", "optics")
 
 
-  util.add_prerequisite(util.tungsten_processing, "kr-mineral-water-gathering")
+  util.add_prerequisite(util.me.tungsten_processing, "kr-mineral-water-gathering")
   util.remove_prerequisite("kr-mineral-water-gathering", "fluid-handling")
 
   -- engines come later with Tungsten.
@@ -237,7 +237,7 @@ util.add_ingredient("vtk-deepcore-mining-drill-advanced", "tungsten-carbide", 50
 
 -- Advanced Mining Drills
 util.add_ingredient("advanced-mining-drill", "tungsten-carbide", 1)
-util.add_prerequisite("advanced-mining-drill",util.tungsten_processing)
+util.add_prerequisite("advanced-mining-drill",util.me.tungsten_processing)
 util.add_ingredient("elite-mining-drill", "tungsten-carbide", 5)
 util.add_ingredient("ultimate-mining-drill", "tungsten-carbide", 10)
 
@@ -304,7 +304,7 @@ util.add_ingredient("mega-furnace", "tungsten-plate", 5)
 
 -- Mundas
 util.add_ingredient("munda_big_machine", "tungsten-carbide", 32)
-util.add_prerequisite("munda_big_machine", util.tungsten_processing)
+util.add_prerequisite("munda_big_machine", util.me.tungsten_processing)
 
 
 -- Realistic reactors

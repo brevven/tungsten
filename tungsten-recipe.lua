@@ -19,7 +19,7 @@ data:extend({
   },
   {
     type = "item",
-    name = util.tungsten_plate,
+    name = util.me.tungsten_plate,
     icon = "__bztungsten__/graphics/icons/tungsten-plate.png",
     icon_size = 128, icon_mipmaps = 3,
     subgroup = "raw-material",
@@ -32,7 +32,7 @@ end
 data:extend({
   {
     type = "recipe",
-    name = util.tungsten_plate,
+    name = util.me.tungsten_plate,
     category = "smelting",
     subgroup = "raw-material",
     order = "d[tungsten-plate]",
@@ -50,26 +50,26 @@ data:extend({
           enabled = false,
           energy_required = 24,
           ingredients = {{"tungsten-ore", 15}},
-          result = util.tungsten_plate,
+          result = util.me.tungsten_plate,
           result_count = 5,
         } or
         {
           enabled = false,
           energy_required = 32/15,
           ingredients = {{"tungsten-ore", mods.bobplates and 4 or 2}},
-          result = util.tungsten_plate,
+          result = util.me.tungsten_plate,
         }),
     expensive =
     {
       enabled = false,
       energy_required = 9.6,
       ingredients = {{"tungsten-ore", 3}},
-      result = util.tungsten_plate
+      result = util.me.tungsten_plate
     }
   },
   {
     type = "technology",
-    name = util.tungsten_processing,
+    name = util.me.tungsten_processing,
     icons = {{ icon =
       mods.bobplates
       and "__bobplates__/graphics/icons/technology/tungsten-processing.png"
@@ -80,11 +80,11 @@ data:extend({
     {
       {
         type = "unlock-recipe",
-        recipe = util.tungsten_plate
+        recipe = util.me.tungsten_plate
       },
       {
         type =  "unlock-recipe",
-        recipe = util.tungsten_carbide_recipe,
+        recipe = util.me.tungsten_carbide_recipe,
       },
       mods["TheBigFurnace"] and {
         type = "unlock-recipe",
@@ -117,7 +117,7 @@ data:extend({
       energy_required = 6, --TODO
       ingredients = {{"tungsten-ore", 100}},
       results = {
-        {type="item", name = util.tungsten_plate, amount=50},
+        {type="item", name = util.me.tungsten_plate, amount=50},
       }
     },
     expensive =
@@ -126,7 +126,7 @@ data:extend({
       energy_required = 15, --TODO
       ingredients = {{"tungsten-ore", 99}},
       results = {
-        {type="item", name = util.tungsten_plate, amount=33},
+        {type="item", name = util.me.tungsten_plate, amount=33},
       }
     }
   } or nil,
@@ -135,7 +135,7 @@ data:extend({
 data:extend({
   {
     type = "recipe",
-    name = util.tungsten_carbide_recipe,
+    name = util.me.tungsten_carbide_recipe,
     category = (mods["Krastorio2"] and "smelting" or "smelting-carbon"),
     subgroup = "raw-material",
     order = "z[tungsten-carbide]",

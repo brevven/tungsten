@@ -1,7 +1,7 @@
 local futil = require("util");
 local util = require("__bztungsten__.data-util");
 
-if util.get_setting("bztungsten-advanced-carbon-furnace") == "yes" and not mods["Krastorio2"] then
+if util.me.get_setting("bztungsten-advanced-carbon-furnace") == "yes" and not mods["Krastorio2"] then
   log("Using advanced carbon furnace")
   data:extend({
   {
