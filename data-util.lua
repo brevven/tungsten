@@ -1,3 +1,5 @@
+-- WARNING - this file will be overwritten, edit bzlib/data-util.lua
+
 local me = require("me")
 local util = {}
 
@@ -161,7 +163,6 @@ function remove_ingredient(recipe, old)
   end
 end
 
-
 -- Replace an amount of an ingredient in a recipe. Keep at least 1 of old.
 function util.replace_some_ingredient(recipe_name, old, old_amount, new, new_amount)
   if me.bypass[recipe_name] then return end
@@ -246,6 +247,46 @@ function multiply_recipe(recipe, multiple)
   end
 end
 
+-- Returns true if a recipe has an ingredient
+function util.has_ingredient(recipe_name, ingredient)
+  return data.raw.recipe[recipe_name] and (
+        has_ingredient(data.raw.recipe[recipe_name], ingredient) or
+        has_ingredient(data.raw.recipe[recipe_name].normal, ingredient))
+end
+
+function has_ingredient(recipe, ingredient)
+  if recipe ~= nil and recipe.ingredients ~= nil then
+    for i, existing in pairs(recipe.ingredients) do
+      if existing[1] == ingredient or existing.name == ingredient then
+        return true
+      end
+    end
+  end
+  return false
+end
+
+-- Replace one product with another in a recipe
+function util.replace_product(recipe_name, old, new)
+  if data.raw.recipe[recipe_name] then
+    replace_product(data.raw.recipe[recipe_name], old, new)
+    replace_product(data.raw.recipe[recipe_name].normal, old, new)
+    replace_product(data.raw.recipe[recipe_name].expensive, old, new)
+  end
+end
+
+function replace_product(recipe, old, new)
+  if recipe ~= nil and recipe.results ~= nil then
+    if recipe.result == old then
+      recipe.results = new
+      return
+    end
+    for i, result in pairs(recipe.results) do
+			if result.name == old then result.name = new end
+			if result[1] == old then result[1] = new end
+    end
+  end
+end
+
 -- Remove an element of type t and name from data.raw
 function util.remove_raw(t, name)
   if data.raw[t][name] then
@@ -297,7 +338,7 @@ function util.set_to_founding(recipe)
   util.set_subgroup(recipe, "foundry-intermediate")
 end
 
--- Addc crafting category to an entity
+-- Add crafting category to an entity
 function util.add_crafting_category(entity_type, entity, category)
    if data.raw[entity_type][entity] then
       for i, existing in pairs(data.raw[entity_type][entity].crafting_categories) do
