@@ -385,3 +385,21 @@ util.add_ingredient("rsc-excavation-site", "tungsten-carbide", 100)
 
 -- Useful Equipment
 util.add_ingredient("craft-assistent", "tungsten-carbide", 1)
+
+
+-- True Nukes
+util.add_ingredient("really-very-small-atomic-bomb", "rocket-engine-nozzle", 2)
+util.add_ingredient("very-small-atomic-bomb", "rocket-engine-nozzle", 3)
+util.add_ingredient("small-atomic-bomb", "rocket-engine-nozzle", 5)
+
+
+-- Schall
+util.add_ingredient("Schall-napalm-bomb", "rocket-engine-nozzle", 1)
+util.replace_ingredient("Schall-sniper-piercing-rounds-magazine", "copper-plate", "tungsten-plate")
+util.add_ingredient("Schall-satellite-astro-2", "rocket-engine-nozzle", 20)
+util.add_ingredient("Schall-satellite-bio-2", "rocket-engine-nozzle", 20)
+util.add_ingredient("Schall-uranium-mining-drill", "tungsten-carbide", 2)
+util.replace_ingredient("Schall-armoured-locomotive", "steel-plate", "tungsten-plate")
+util.replace_ingredient("Schall-armoured-cargo-wagon", "steel-plate", "tungsten-plate")
+util.replace_ingredient("Schall-armoured-fluid-wagon", "steel-plate", "tungsten-plate")
+
