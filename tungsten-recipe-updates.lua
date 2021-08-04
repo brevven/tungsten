@@ -409,3 +409,14 @@ util.replace_ingredient("Schall-armoured-locomotive", "steel-plate", "tungsten-p
 util.replace_ingredient("Schall-armoured-cargo-wagon", "steel-plate", "tungsten-plate")
 util.replace_ingredient("Schall-armoured-fluid-wagon", "steel-plate", "tungsten-plate")
 
+-- Space solar panel
+util.add_ingredient("space-solar-panel", "rocket-engine-nozzle", 10)
+
+
+-- Power Armor Mk3
+util.add_ingredient("pamk3-pamk3", "tungsten-plate", 20)
+-- Leion Power Armor Mk3
+util.add_ingredient("power-armor-mk3", "tungsten-plate", 20)
+-- Simply Power Armor Mk3
+util.add_ingredient("simply-power-armor-mk3", "tungsten-plate", 20)
+

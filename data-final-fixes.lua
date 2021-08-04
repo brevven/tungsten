@@ -31,3 +31,10 @@ util.remove_prerequisite("tungsten-processing", "se-material-science-pack-1")
 
 -- One more tier
 util.add_ingredient("omt-electric-mining-drill", "tungsten-carbide", 10)
+
+
+-- Junk Trains, no optics:
+util.remove_prerequisite("automated-scrap-rail-transportation", "optics")
+util.remove_ingredient("train-stop-scrap", "small-lamp")
+util.remove_ingredient("rail-signal-scrap", "small-lamp")
+util.remove_ingredient("rail-chain-signal-scrap", "small-lamp")
