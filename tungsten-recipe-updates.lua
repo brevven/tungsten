@@ -170,6 +170,12 @@ if mods["space-exploration"] then
   util.add_ingredient("se-core-miner", "tungsten-carbide", 40)
   util.add_ingredient("se-space-mechanical-laboratory", "tungsten-carbide", 40)
   util.add_ingredient("se-recyling-facility", "tungsten-carbide", 10)
+
+  util.add_ingredient("se-experimental-alloys-data", "tungsten-plate", 1)
+  util.add_to_product("se-experimental-alloys-data", "se-experimental-alloys-data", 1)
+  util.add_to_product("se-experimental-alloys-data", "se-scrap", 1)
+  util.add_to_ingredient("se-experimental-alloys-data", "se-empty-data", 1)
+
 end
 if mods["aai-industry"] then
   util.add_ingredient("area-mining-drill", "tungsten-carbide", 8)
