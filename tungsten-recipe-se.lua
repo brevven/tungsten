@@ -5,6 +5,23 @@ if mods["space-exploration"] then
   se_delivery_cannon_recipes["tungsten-ore"] = {name= "tungsten-ore"}
   se_delivery_cannon_recipes["tungsten-plate"] = {name= "tungsten-plate"}
   se_delivery_cannon_recipes["tungsten-carbide"] = {name= "tungsten-carbide"}
+
+  data:extend({
+  {
+    type = "recipe",
+    icons = {
+      { icon = "__base__/graphics/icons/landfill.png", icon_size = 64, icon_mipmaps = 3 },
+      { icon = "__bztungsten__/graphics/icons/tungsten-ore.png", icon_size = 64, scale = 0.25},
+    },
+    name = "landfill-tungsten-ore",
+    category = "hard-recycling",
+    order = "z-b-tungsten",
+    subgroup = "terrain",
+    result = "landfill",
+    ingredients = {{"tungsten-ore", 50}},
+  }
+  })
+
   if mods["Krastorio2"] then
     data:extend({
     {
