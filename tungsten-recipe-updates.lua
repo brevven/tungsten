@@ -420,3 +420,10 @@ util.add_ingredient("power-armor-mk3", "tungsten-plate", 20)
 -- Simply Power Armor Mk3
 util.add_ingredient("simply-power-armor-mk3", "tungsten-plate", 20)
 
+
+-- Cargo Ships
+util.add_prerequisite("water_transport_signals", "optics")
+util.add_ingredient("buoy", "small-lamp", 1)
+util.add_ingredient("chain_buoy", "small-lamp", 1)
+util.add_ingredient("oil_rig", "tungsten-carbide", 5)
+

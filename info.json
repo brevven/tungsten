@@ -1,5 +1,5 @@
 { "name": "bztungsten",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "factorio_version": "1.1",
     "title": "Tungsten",
     "author": "Brevven",
@@ -13,6 +13,6 @@
       "? DeadlockCrating",
       "? bzlead"
     ],
-    "description": "Adds tungsten ore (wolframite), tungsten plates, tungsten carbide and rocket engine nozzles to the base game.\n\nAvailable after green science, tungsten and the various intermediates are used throughout the vanilla game. Compatible with Space Exploration and Krastorio 2, as well as several other mods. More compatibility forthcoming."
+    "description": "Adds tungsten ore (wolframite), tungsten plates, tungsten carbide and rocket engine nozzles to the base game.\n\nAvailable after green science, tungsten and the various intermediates are used throughout the vanilla game.\nClampompatible with RSO, Space Exploration and Krastorio 2, and several other mods. Part of BZ Mods."
 }
 
