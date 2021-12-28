@@ -164,6 +164,7 @@ if mods["space-exploration"] then
   util.add_ingredient("se-spaceship-rocket-engine", "rocket-engine-nozzle", 4)
   util.add_ingredient("se-cargo-rocket-section", "rocket-engine-nozzle", 5)
   util.add_ingredient("se-cargo-rocket-section-beryllium", "rocket-engine-nozzle", 5)
+  util.add_ingredient("se-void-probe", "rocket-engine-nozzle", 1)
 
   --Tooling
   util.add_ingredient("se-space-assembling-machine", "tungsten-carbide", 8)
@@ -271,7 +272,7 @@ if mods["zombiesextended-core"] then
   util.add_ingredient("heat-pipe-mk1", "tungsten-plate", 1)
 end
 util.add_ingredient("electric-mining-drill-mk2", "tungsten-carbide", tcamount)
-util.add_ingredient("edrill-1to2", "tungsten-carbide", 10)
+util.add_ingredient("edrill-1to2", "tungsten-carbide", tcamount)
 util.add_ingredient("electric-mining-drill-mk3", "tungsten-carbide", tcamount)
 util.add_ingredient("electric-mining-drill-mk4", "tungsten-carbide", tcamount)
 util.add_ingredient("electric-mining-drill-mk5", "tungsten-carbide", tcamount)

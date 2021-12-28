@@ -109,7 +109,7 @@ end
 -- Add a given quantity of product to a given recipe. 
 -- Only works for recipes with multiple products
 function util.add_product(recipe_name, product)
-  if data.raw.recipe[recipe_name] and data.raw.item[product] then
+  if data.raw.recipe[recipe_name] and (data.raw.item[product[1]] or data.raw.item[product.name]) then
     add_product(data.raw.recipe[recipe_name], product)
     add_product(data.raw.recipe[recipe_name].normal, product)
     add_product(data.raw.recipe[recipe_name].expensive, product)
@@ -272,6 +272,31 @@ function has_ingredient(recipe, ingredient)
     end
   end
   return false
+end
+
+-- Remove a product from a recipe, WILL NOT remove the only product
+function util.remove_product(recipe_name, old)
+  if me.bypass[recipe_name] then return end
+  if data.raw.recipe[recipe_name] then
+    remove_product(data.raw.recipe[recipe_name], old)
+    remove_product(data.raw.recipe[recipe_name].normal, old)
+    remove_product(data.raw.recipe[recipe_name].expensive, old)
+  end
+end
+
+function remove_product(recipe, old)
+  index = -1
+	if recipe ~= nil and recipe.results ~= nil then
+		for i, result in pairs(recipe.results) do 
+      if result.name == old or result[1] == old then
+        index = i
+        break
+      end
+    end
+    if index > -1 then
+      table.remove(recipe.results, index)
+    end
+  end
 end
 
 -- Replace one product with another in a recipe

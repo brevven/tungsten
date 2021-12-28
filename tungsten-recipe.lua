@@ -173,6 +173,9 @@ local nozzle_i = {{"tungsten-plate", 2}}
 if mods.bzzirconium then
   table.insert(nozzle_i, {"zirconium-plate", 1})
 end
+if mods.bzcarbon then
+  table.insert(nozzle_i, {"graphite", 1})
+end
 
 data:extend({
   {
