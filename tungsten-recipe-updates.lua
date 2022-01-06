@@ -178,9 +178,12 @@ if mods["space-exploration"] then
   util.add_to_ingredient("se-experimental-alloys-data", "se-empty-data", 1)
 
 end
-if mods["aai-industry"] then
-  util.add_ingredient("area-mining-drill", "tungsten-carbide", 8)
-end
+
+-- AAI 
+util.add_ingredient("area-mining-drill", "tungsten-carbide", 8)
+util.add_ingredient("vehicle-miner-mk3", "tungsten-carbide", 5)
+util.add_ingredient("vehicle-flame-tumbler", "flamethrower", 1)
+
 
 
 util.replace_some_ingredient("superheater", "copper-plate", 10, "tungsten-plate", 10)
