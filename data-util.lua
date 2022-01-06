@@ -8,6 +8,15 @@ local util = {}
 util.me = me
 util.get_setting = util.me.get_setting
 
+util.titanium_plate = ""
+util.titanium_processing = ""
+
+if mods["FactorioExtended-Plus-Core"] then
+  util.titanium_plate = "titanium-alloy"
+else
+  util.titanium_plate = "titanium-plate"
+end
+
 function util.fe_plus(sub)
   if mods["FactorioExtended-Plus-"..sub] then
     return true
@@ -334,7 +343,7 @@ function util.remove_raw(t, name)
 end
 
 -- Multiply energy required
-function util.multiply_time(recipe, factor)
+function util.multiply_time(recipe_name, factor)
   if me.bypass[recipe_name] then return end
   if data.raw.recipe[recipe_name] then
     multiply_time(data.raw.recipe[recipe_name], factor)
@@ -351,19 +360,40 @@ function multiply_time(recipe, factor)
   end
 end
 
+-- Add to energy required
+function util.add_time(recipe_name, amount)
+  log("Doing ".. recipe_name)
+  log(amount)
+  if me.bypass[recipe_name] then return end
+  log(1)
+  if data.raw.recipe[recipe_name] then
+    add_time(data.raw.recipe[recipe_name], amount)
+    add_time(data.raw.recipe[recipe_name].normal, amount)
+    add_time(data.raw.recipe[recipe_name].expensive, amount)
+	end
+end
+
+function add_time(recipe, amount)
+  if recipe then
+    if recipe.energy_required then
+      recipe.energy_required = recipe.energy_required + amount
+    end
+  end
+end
+
 -- Set recipe category
-function util.set_category(recipe, category)
+function util.set_category(recipe_name, category)
    if me.bypass[recipe_name] then return end
-   if data.raw.recipe[recipe] then
-      data.raw.recipe[recipe].category = category
+   if data.raw.recipe[recipe_name] then
+      data.raw.recipe[recipe_name].category = category
    end
 end
 
 -- Set recipe subgroup
-function util.set_subgroup(recipe, subgroup)
+function util.set_subgroup(recipe_name, subgroup)
    if me.bypass[recipe_name] then return end
-   if data.raw.recipe[recipe] then
-      data.raw.recipe[recipe].subgroup = subgroup
+   if data.raw.recipe[recipe_name] then
+      data.raw.recipe[recipe_name].subgroup = subgroup
    end
 end
 
@@ -432,6 +462,12 @@ function add_to_product(recipe, product, amount)
         return
       end
     end
+  end
+end
+
+function util.add_minable_result(t, name, result)
+  if data.raw[t] and data.raw[t][name] and data.raw[t][name].minable and data.raw[t][name].minable.results then
+    table.insert(data.raw[t][name].minable.results, result)
   end
 end
 
