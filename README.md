@@ -21,3 +21,6 @@ See changelog.txt
 - [Spectrus1702](https://github.com/Spectrus1702) (ru)
 - [Sakuro](https://github.com/sakuro) (ja)
 - [Yokmp](https://github.com/Yokmp) (de)
+- [TheoMarque](https://github.com/TheoMarque) (pl)
+- [S3BA](https://github.com/S3BA-pl) (pl)
+
