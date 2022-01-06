@@ -1,6 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.5.0
+Date: 2022-01-03
+  Changes:
+    - Rocket engine nozzle recipe is set as 2 plates here and later modified in other mods.
+    - JA l10n updates
+    - AAI Vehicles 
+---------------------------------------------------------------------------------------------------
 Version: 0.4.2
-Date: 2021-12-31
+Date: 2021-12-30
   Changes:
     - SE Void probe recipe
     - Graphite compatibility

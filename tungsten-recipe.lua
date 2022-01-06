@@ -168,15 +168,6 @@ data:extend({
   },
 })
 
-local nozzle_i = {{"tungsten-plate", 2}}
-
-if mods.bzzirconium then
-  table.insert(nozzle_i, {"zirconium-plate", 1})
-end
-if mods.bzcarbon then
-  table.insert(nozzle_i, {"graphite", 1})
-end
-
 data:extend({
   {
     type = "item",
@@ -197,10 +188,9 @@ data:extend({
           { icon = "__bztungsten__/graphics/icons/rocket-engine-nozzle.png", icon_size = 128}
     },
     enabled = false,
-    energy_required = 5 * #nozzle_i,
-    ingredients = nozzle_i,
-    result = "rocket-engine-nozzle",
-    result_count = #nozzle_i
+    energy_required = 5,
+    ingredients =  {{"tungsten-plate", 2}},
+    results = {{"rocket-engine-nozzle", 1}},
   }
 })
 
