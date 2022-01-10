@@ -19,6 +19,7 @@ data:extend({
 		setting_type = "startup",
 		default_value = "no",
     allowed_values = {"yes", "no"},
+    hidden = not not (mods.Krastorio2 or mods.bzfoundry),
 	},
   mods["Krastorio2"] and
   {
