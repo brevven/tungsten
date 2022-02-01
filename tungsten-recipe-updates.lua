@@ -228,6 +228,11 @@ util.add_ingredient("bolt75mk2","tungsten-plate", 1)
 util.add_ingredient("bolt100mk2","tungsten-plate", 1)
 util.replace_ingredient("bolt75kraken", "steel-plate", "tungsten-plate")
 util.replace_ingredient("bolt100kraken", "steel-plate", "tungsten-plate")
+-- King Jo vehicles
+util.replace_some_ingredient("kj_40kbaneblade", "steel-plate", 25, "tungsten-plate", 25)
+util.replace_some_ingredient("kj_40kpredator", "steel-plate", 25, "tungsten-plate", 25)
+util.replace_some_ingredient("kj_40kdreadnought", "steel-plate", 25, "tungsten-plate", 25)
+util.replace_some_ingredient("kj_40klemanruss", "steel-plate", 25, "tungsten-plate", 25)
 
 -- additional turrets
 util.add_ingredient("at-acidthrower-turret", "tungsten-plate", 5)

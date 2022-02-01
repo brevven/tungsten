@@ -101,7 +101,7 @@ data:extend({
 		},
 		results =
 		{
-			{type = "fluid", name = "water", amount = 100, catalyst_amount = 100},
+			{type = "fluid", name = "water", amount = 90, catalyst_amount = 90},
 			{type = "item",  name = "stone", probability = 0.30, amount = 1},
 			{type = "item",  name = "tungsten-ore", probability = 0.05, amount = 1}
 		},

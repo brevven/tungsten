@@ -9,24 +9,27 @@ if mods["5dim_core"] then
   data.raw.item["tungsten-ore"].subgroup = "plates-ore"
 
   -- Industrial furnace
-  data:extend({
-    {
-      type = "recipe",
-      name = "tungsten-plate-industrial-ore",
-      category = "industrial-furnace",
-      subgroup = "plates-industrial-ore",
-      order = "ad[tungsten-plate]",
-      icon = "__bztungsten__/graphics/icons/tungsten-plate.png",
-      icon_size = 128, icon_mipmaps = 3,
-      enabled = true,
-      energy_required = 50,
-      ingredients = {{"tungsten-ore", 85}},
-      result = "tungsten-plate",
-      result_count = 50,
-    }
-  })
+  if data.raw["recipe-category"]["industrial-furnace"] then
+    data:extend({
+      {
+        type = "recipe",
+        name = "tungsten-plate-industrial-ore",
+        category = "industrial-furnace",
+        subgroup = "plates-industrial-ore",
+        order = "ad[tungsten-plate]",
+        icon = "__bztungsten__/graphics/icons/tungsten-plate.png",
+        icon_size = 128, icon_mipmaps = 3,
+        enabled = true,
+        energy_required = 50,
+        ingredients = {{"tungsten-ore", 85}},
+        result = "tungsten-plate",
+        result_count = 50,
+      }
+    })
+  end
 
-  -- Lead dust
+  -- Tungsten dust
+  if data.raw["recipe-category"]["mashering"] then
   data:extend(
     {
         {
@@ -99,6 +102,7 @@ if mods["5dim_core"] then
           result_count = 20,
         }
   })
+  end
 
   local mks = {"02", "03", "04", "05", "06", "07", "08", "09", "10"}
   local items = {"5d-electric-mining-drill-", "5d-chemical-plant-"}
