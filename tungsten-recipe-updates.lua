@@ -436,3 +436,7 @@ util.add_ingredient("buoy", "small-lamp", 1)
 util.add_ingredient("chain_buoy", "small-lamp", 1)
 util.add_ingredient("oil_rig", "tungsten-carbide", 5)
 
+-- High caliber guns
+util.replace_ingredient("penetrator-shell", "steel-plate", "tungsten-plate")
+util.add_to_ingredient("penetrator-shell", "tungsten-plate", 2)
+util.replace_ingredient("basic-ammo-crate", "copper-plate", "tungsten-plate")
