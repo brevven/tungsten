@@ -39,8 +39,9 @@ data:extend({
       name = "tungsten-ore",
       order = "b-z",
       base_density = 4,
-      has_starting_area_placement = mods["Krastorio2"] and true,
-      regular_rq_factor_multiplier = 1.2
+      has_starting_area_placement = util.me.starting_patch() and true,
+      regular_rq_factor_multiplier = 1.2,
+      starting_rq_factor_multiplier = 1.0,
     },
 
     stage_counts = {15000, 9500, 5500, 2900, 1300, 400, 150, 80},
@@ -82,11 +83,11 @@ data:extend({
   },
 })
 
--- Wolframite becomes 20% richer past 1000 tiles, 60% richer past 10000 tiles. Very close to start, it's 50% less rich
+-- Wolframite becomes 20% richer past 1000 tiles, 60% richer past 10000 tiles. Very close to start, it's 25% richness
 local richness = data.raw.resource["tungsten-ore"].autoplace.richness_expression  
 data.raw.resource["tungsten-ore"].autoplace.richness_expression = 
   richness * noise.if_else_chain(
-      noise.less_than(noise.distance_from(noise.var("x"), noise.var("y"), noise.var("starting_positions")), noise.to_noise_expression(100)), 0.5,
+      noise.less_than(noise.distance_from(noise.var("x"), noise.var("y"), noise.var("starting_positions")), noise.to_noise_expression(100)), 0.25,
       noise.less_than(noise.distance_from(noise.var("x"), noise.var("y"), noise.var("starting_positions")), noise.to_noise_expression(1000)), 1,
       noise.less_than(noise.distance_from(noise.var("x"), noise.var("y"), noise.var("starting_positions")), noise.to_noise_expression(10000)), 1.2,
       1.6)

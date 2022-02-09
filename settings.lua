@@ -21,6 +21,14 @@ data:extend({
     allowed_values = {"yes", "no"},
     hidden = not not (mods.Krastorio2 or mods.bzfoundry),
 	},
+  {
+		type = "bool-setting",
+		name = "bztungsten-starting-patch",
+		setting_type = "startup",
+		default_value = false,
+    allowed_values = {"yes", "no"},
+    hidden = not not mods.Krastorio2,
+	},
   mods["Krastorio2"] and
   {
 		type = "int-setting",

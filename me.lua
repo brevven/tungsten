@@ -11,6 +11,10 @@ if mods.bobplates then
   me.tungsten_carbide_recipe = "bz-tungsten-carbide"
 end
 
+function me.starting_patch()
+  return mods["Krastorio2"] or me.get_setting("bztungsten-starting-patch")
+end
+
 function me.fluid_amount()
   if mods["Krastorio2"] then
     local amt = me.get_setting("bztungsten-mining-fluid-amount-k2")
