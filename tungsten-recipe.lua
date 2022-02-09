@@ -59,13 +59,20 @@ data:extend({
           ingredients = {{"tungsten-ore", mods.bobplates and 4 or 2}},
           result = util.me.tungsten_plate,
         }),
-    expensive =
-    {
-      enabled = false,
-      energy_required = 9.6,
-      ingredients = {{"tungsten-ore", 3}},
-      result = util.me.tungsten_plate
-    }
+    expensive = (mods["Krastorio2"] and
+        {
+          enabled = false,
+          energy_required = 32,
+          ingredients = {{"tungsten-ore", 20}},
+          result = util.me.tungsten_plate,
+          result_count = 5,
+        } or
+        {
+          enabled = false,
+          energy_required = 48/15,
+          ingredients = {{"tungsten-ore", mods.bobplates and 6 or 3}},
+          result = util.me.tungsten_plate,
+        }),
   },
   {
     type = "technology",
@@ -150,21 +157,26 @@ data:extend({
           ingredients = {{"tungsten-plate", 10}, {"coke", 5}},
           result = "tungsten-carbide",
           result_count = 4,
-        } or
-        {
+        } or {
           enabled = false,
           energy_required = 64/3,
           ingredients = {{"tungsten-plate", 5}},
           result = "tungsten-carbide",
           result_count = 2,
         }),
-    expensive =
+    expensive = (mods["Krastorio2"] and
     {
       enabled = false,
-      energy_required = 25.6,
+      energy_required = 48,
+      ingredients = {{"tungsten-plate", 10}, {"coke", 5}},
+      result = "tungsten-carbide",
+      result_count = 2,
+    } or {
+      enabled = false,
+      energy_required = 64/3,
       ingredients = {{"tungsten-plate", 5}},
       result = "tungsten-carbide",
-    }
+    }),
   },
 })
 
