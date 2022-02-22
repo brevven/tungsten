@@ -23,4 +23,4 @@ See changelog.txt
 - [Yokmp](https://github.com/Yokmp) (de)
 - [TheoMarque](https://github.com/TheoMarque) (pl)
 - [S3BA](https://github.com/S3BA-pl) (pl)
-
+- [x2605](https://github.com/x2605) (ko)
