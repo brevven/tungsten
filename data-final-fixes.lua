@@ -15,10 +15,6 @@ for i, entity in pairs(data.raw.furnace) do
 end 
 
 if mods["space-exploration"] then 
-  -- Organization
-  data.raw.item["tungsten-plate"].subgroup = "plates"
-  data.raw.recipe["tungsten-plate"].subgroup = "plates"
-
   -- core mining balancing
   util.add_to_product("se-core-fragment-omni", "tungsten-ore", -3)
 end

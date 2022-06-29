@@ -10,6 +10,9 @@ if deadlock then
   if mods["Krastorio2"] then
     deadlock.add_stack("enriched-tungsten", "__bztungsten__/graphics/icons/stacked/enriched-tungsten-stacked.png" , "deadlock-stacking-2", 64)
   end
+  if data.raw.item["tungsten-ingot"] then
+    deadlock.add_stack("tungsten-ingot", nil, "deadlock-stacking-2", nil)
+  end
 end
 
 -- Deadlock crating recipes
@@ -20,6 +23,9 @@ if deadlock_crating then
   deadlock_crating.add_crate("rocket-engine-nozzle", "deadlock-crating-2")
   if mods["Krastorio2"] then
     deadlock_crating.add_crate("enriched-tungsten", "deadlock-crating-2")
+  end
+  if data.raw.item["tungsten-ingot"] then
+    deadlock_crating.add_crate("tungsten-ingot", "deadlock-crating-2")
   end
 end
 
