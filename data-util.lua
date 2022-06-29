@@ -54,6 +54,19 @@ function util.contains(table, sought)
   return false
 end
 
+-- Set/override a technology's prerequisites
+function util.set_prerequisite(technology_name, prerequisites)
+  local technology = data.raw.technology[technology_name]
+  if technology then
+    technology.prerequisites = {}
+    for i, prerequisite in pairs(prerequisites) do
+      if data.raw.technology[prerequisite] then
+        table.insert(technology.prerequisites, prerequisite)
+      end
+    end
+  end
+end
+
 -- Add a prerequisite to a given technology
 function util.add_prerequisite(technology_name, prerequisite)
   local technology = data.raw.technology[technology_name]
@@ -157,15 +170,16 @@ end
 -- Add a given quantity of ingredient to a given recipe
 function util.add_ingredient(recipe_name, ingredient, quantity)
   if me.bypass[recipe_name] then return end
-  if data.raw.recipe[recipe_name] and data.raw.item[ingredient] then
+  local is_fluid = not not data.raw.fluid[ingredient]
+  if data.raw.recipe[recipe_name] and (data.raw.item[ingredient] or is_fluid) then
     me.add_modified(recipe_name)
-    add_ingredient(data.raw.recipe[recipe_name], ingredient, quantity)
-    add_ingredient(data.raw.recipe[recipe_name].normal, ingredient, quantity)
-    add_ingredient(data.raw.recipe[recipe_name].expensive, ingredient, quantity)
+    add_ingredient(data.raw.recipe[recipe_name], ingredient, quantity, is_fluid)
+    add_ingredient(data.raw.recipe[recipe_name].normal, ingredient, quantity, is_fluid)
+    add_ingredient(data.raw.recipe[recipe_name].expensive, ingredient, quantity, is_fluid)
   end
 end
 
-function add_ingredient(recipe, ingredient, quantity)
+function add_ingredient(recipe, ingredient, quantity, is_fluid)
   if recipe ~= nil and recipe.ingredients ~= nil then
     for i, existing in pairs(recipe.ingredients) do
       if existing[1] == ingredient or existing.name == ingredient then
@@ -173,7 +187,11 @@ function add_ingredient(recipe, ingredient, quantity)
         return
       end
     end
-    table.insert(recipe.ingredients, {ingredient, quantity})
+    if is_fluid then
+      table.insert(recipe.ingredients, {type="fluid", name=ingredient, amount=quantity})
+    else
+      table.insert(recipe.ingredients, {ingredient, quantity})
+    end
   end
 end
 
@@ -255,7 +273,7 @@ end
 -- Replace one ingredient with another in a recipe
 function util.replace_ingredient(recipe_name, old, new)
   if me.bypass[recipe_name] then return end
-  if data.raw.recipe[recipe_name] and data.raw.item[new] then
+  if data.raw.recipe[recipe_name] and (data.raw.item[new] or data.raw.fluid[new]) then
     me.add_modified(recipe_name)
     replace_ingredient(data.raw.recipe[recipe_name], old, new)
     replace_ingredient(data.raw.recipe[recipe_name].normal, old, new)
@@ -307,15 +325,16 @@ end
 -- Replace an amount of an ingredient in a recipe. Keep at least 1 of old.
 function util.replace_some_ingredient(recipe_name, old, old_amount, new, new_amount)
   if me.bypass[recipe_name] then return end
-  if data.raw.recipe[recipe_name] and data.raw.item[new] then
+  local is_fluid = not not data.raw.fluid[new]
+  if data.raw.recipe[recipe_name] and (data.raw.item[new] or is_fluid) then
     me.add_modified(recipe_name)
-    replace_some_ingredient(data.raw.recipe[recipe_name], old, old_amount, new, new_amount)
-    replace_some_ingredient(data.raw.recipe[recipe_name].normal, old, old_amount, new, new_amount)
-    replace_some_ingredient(data.raw.recipe[recipe_name].expensive, old, old_amount, new, new_amount)
+    replace_some_ingredient(data.raw.recipe[recipe_name], old, old_amount, new, new_amount, is_fluid)
+    replace_some_ingredient(data.raw.recipe[recipe_name].normal, old, old_amount, new, new_amount, is_fluid)
+    replace_some_ingredient(data.raw.recipe[recipe_name].expensive, old, old_amount, new, new_amount, is_fluid)
   end
 end
 
-function replace_some_ingredient(recipe, old, old_amount, new, new_amount)
+function replace_some_ingredient(recipe, old, old_amount, new, new_amount, is_fluid)
 	if recipe ~= nil and recipe.ingredients ~= nil then
     for i, existing in pairs(recipe.ingredients) do
       if existing[1] == new or existing.name == new then
@@ -331,7 +350,7 @@ function replace_some_ingredient(recipe, old, old_amount, new, new_amount)
         ingredient[2] = math.max(1, ingredient[2] - old_amount)
       end
 		end
-    add_ingredient(recipe, new, new_amount)
+    add_ingredient(recipe, new, new_amount, is_fluid)
 	end
 end
 
@@ -434,6 +453,20 @@ function remove_product(recipe, old)
   end
 end
 
+function util.set_main_product(recipe_name, product)
+  if data.raw.recipe[recipe_name] then
+    set_main_product(data.raw.recipe[recipe_name], product)
+    set_main_product(data.raw.recipe[recipe_name].normal, product)
+    set_main_product(data.raw.recipe[recipe_name].expensive, product)
+  end
+end
+
+function set_main_product(recipe, product)
+  if recipe then
+    recipe.main_product = product
+  end
+end
+
 -- Replace one product with another in a recipe
 function util.replace_product(recipe_name, old, new)
   if data.raw.recipe[recipe_name] then
@@ -444,14 +477,19 @@ function util.replace_product(recipe_name, old, new)
 end
 
 function replace_product(recipe, old, new)
-  if recipe ~= nil and recipe.results ~= nil then
+  if recipe then
+    if recipe.main_product == old then
+      recipe.main_product = new
+    end
     if recipe.result == old then
-      recipe.results = new
+      recipe.result = new
       return
     end
-    for i, result in pairs(recipe.results) do
-			if result.name == old then result.name = new end
-			if result[1] == old then result[1] = new end
+    if recipe.results then
+      for i, result in pairs(recipe.results) do
+        if result.name == old then result.name = new end
+        if result[1] == old then result[1] = new end
+      end
     end
   end
 end
@@ -541,10 +579,10 @@ end
 
 -- Set recipe icons
 function util.set_item_icons(item_name, icons)
-  if data.raw.recipe[item_name] then
-    data.raw.recipe[item_name].icons = icons
-    data.raw.recipe[item_name].icon = nil
-    data.raw.recipe[item_name].icon_size = nil
+  if data.raw.item[item_name] then
+    data.raw.item[item_name].icons = icons
+    data.raw.item[item_name].icon = nil
+    data.raw.item[item_name].icon_size = nil
   end
 end
 
