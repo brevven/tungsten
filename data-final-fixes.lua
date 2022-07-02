@@ -17,6 +17,10 @@ end
 if mods["space-exploration"] then 
   -- core mining balancing
   util.add_to_product("se-core-fragment-omni", "tungsten-ore", -3)
+
+  if string.sub(mods["space-exploration"], 1, 3) == "0.6" then
+    util.add_prerequisite("rocket-silo", "rocketry")
+  end
 end
 
 

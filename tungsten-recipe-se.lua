@@ -31,8 +31,8 @@ if string.sub(mods["space-exploration"], 1, 3) == "0.6" then
     order = "a-h-z-a",
   }
   })
-  data.raw.item["tungsten-plate"].subgroup = "tungsten"
-  data.raw.item["tungsten-carbide"].subgroup = "tungsten"
+  util.set_item_subgroup("tungsten-plate", "tungsten")
+  util.set_item_subgroup("tungsten-carbide", "tungsten")
   data:extend({
   {
     type = "item",
@@ -47,8 +47,8 @@ if string.sub(mods["space-exploration"], 1, 3) == "0.6" then
     name = "molten-tungsten",
     default_temperature = 3422,
     max_temperature = 3422,
-    base_color = {r=191, g=219, b=233},
-    flow_color = {r=191, g=219, b=233},
+    base_color = {r=255, g=160, b=60},
+    flow_color = {r=255, g=160, b=60},
     icons = {{icon = "__bztungsten__/graphics/icons/molten-tungsten.png", icon_size = 128}},
     order = "a[molten]-a",
     pressure_to_speed_ratio = 0.4,
@@ -126,6 +126,10 @@ if string.sub(mods["space-exploration"], 1, 3) == "0.6" then
     order = "a-c-b"
   },
   })
+  util.add_effect("se-pyroflux-smelting", {type = "unlock-recipe", recipe= "molten-tungsten"})
+  util.add_effect("se-pyroflux-smelting", {type = "unlock-recipe", recipe= "tungsten-ingot"})
+  util.add_effect("se-pyroflux-smelting", {type = "unlock-recipe", recipe= "tungsten-ingot-to-plate"})
+  util.add_effect("se-pyroflux-smelting", {type = "unlock-recipe", recipe= "tungsten-carbide-casting"})
   util.add_effect("se-vulcanite-smelting", {type = "unlock-recipe", recipe= "molten-tungsten"})
   util.add_effect("se-vulcanite-smelting", {type = "unlock-recipe", recipe= "tungsten-ingot"})
   util.add_effect("se-vulcanite-smelting", {type = "unlock-recipe", recipe= "tungsten-ingot-to-plate"})
