@@ -21,6 +21,7 @@ data:extend({
   {
     type = "recipe",
     name = "enriched-tungsten",
+    main_product = "enriched-tungsten",
     icon = "__bztungsten__/graphics/icons/enriched-tungsten.png",
     icon_size = 64,
     category = "chemistry",
@@ -47,7 +48,6 @@ data:extend({
       tertiary = {r = 0.690, g = 0.768, b = 0.870, a = 0.000}, 
       quaternary = {r = 0.0, g = 0.980, b = 0.603, a = 0.900}
     },
-    subgroup = "raw-material",
     order = "e03[enriched-tungsten]"
   },
   {
