@@ -136,6 +136,7 @@ if string.sub(mods["space-exploration"], 1, 3) == "0.6" then
   util.add_effect("se-vulcanite-smelting", {type = "unlock-recipe", recipe= "tungsten-carbide-casting"})
   util.add_prerequisite(data.raw.technology["se-processing-vulcanite"], util.me.tungsten_processing)
   if mods["Krastorio2"] then
+    util.set_item_subgroup("enriched-tungsten", "tungsten")
     data.raw.recipe["enriched-tungsten-plate"].order= "d[tungsten-plate]"
     se_delivery_cannon_recipes["enriched-tungsten"] = {name= "enriched-tungsten"}
   end
