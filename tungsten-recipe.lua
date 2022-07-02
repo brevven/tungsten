@@ -143,8 +143,8 @@ data:extend({
   {
     type = "recipe",
     name = util.me.tungsten_carbide_recipe,
+    main_product = util.me.tungsten_carbide_recipe,
     category = (mods["Krastorio2"] and "smelting" or "smelting-carbon"),
-    subgroup = "raw-material",
     order = "z[tungsten-carbide]",
     icons = { mods.bobplates and 
       { icon = "__bobplates__/graphics/icons/plate/tungsten-carbide-plate.png", icon_size = 64}
