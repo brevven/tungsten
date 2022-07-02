@@ -33,8 +33,8 @@ data:extend({
   {
     type = "recipe",
     name = util.me.tungsten_plate,
+    main_product = util.me.tungsten_plate,
     category = "smelting",
-    subgroup = "raw-material",
     order = "d[tungsten-plate]",
     icons = (mods["Krastorio2"] and {
           { icon = "__bztungsten__/graphics/icons/tungsten-plate.png", icon_size = 128, icon_mipmaps = 3, },
