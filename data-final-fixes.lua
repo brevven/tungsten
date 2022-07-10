@@ -10,7 +10,11 @@ local util = require("__bztungsten__.data-util");
 -- Only burners can make tungsten carbide in vanilla
 for i, entity in pairs(data.raw.furnace) do
   if entity.energy_source.type == "burner" then
-     table.insert(entity.crafting_categories,"smelting-carbon")
+    if entity.name == "double-steel-furnace" then
+      table.insert(entity.crafting_categories,"double-smelting-carbon")
+     else
+      table.insert(entity.crafting_categories,"smelting-carbon")
+    end
   end
 end 
 

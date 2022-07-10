@@ -206,3 +206,23 @@ data:extend({
   }
 })
 
+
+if mods.DoubleFurnace then
+data:extend({
+  { type = "recipe-category", name = "double-smelting-carbon"},
+})
+
+data:extend({
+  {
+    type = "recipe",
+    name = "double-tungsten",
+    category = "double-smelting-carbon",
+    enabled = false,
+    energy_required = 32/3,
+    ingredients =  {{"tungsten-ore", 5}},
+    results = {{"tungsten-carbide", 1}},
+  }
+})
+util.add_effect(util.me.tungsten_processing, {type = "unlock-recipe", recipe = "double-tungsten"})
+end
+
