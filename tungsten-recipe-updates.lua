@@ -15,14 +15,18 @@ util.add_ingredient("rail-chain-signal", "small-lamp", 1)
 
 -- Ammunition
 util.add_prerequisite("military-2", util.me.tungsten_processing)
-util.replace_ingredient("piercing-rounds-magazine", "copper-plate", "tungsten-plate")
-util.replace_ingredient("piercing-shotgun-shell", "copper-plate", "tungsten-plate")
+util.replace_ingredient("piercing-rounds-magazine", "copper-plate", "tungsten-plate", 3)
+util.replace_ingredient("piercing-shotgun-shell", "copper-plate", "tungsten-plate", 3)
 util.replace_ingredient("cannon-shell", "copper-plate", "tungsten-plate")
 
 
 -- Tooling
 util.add_prerequisite("automation-2", util.me.tungsten_processing)
-util.replace_some_ingredient("assembling-machine-2", "steel-plate", 1, "tungsten-carbide", 1)
+if mods.bzaluminum or mods.bzcarbon or mods.bzgas then
+  util.replace_ingredient("assembling-machine-2", "steel-plate", "tungsten-carbide")
+else
+  util.replace_some_ingredient("assembling-machine-2", "steel-plate", 1, "tungsten-carbide", 1)
+end
 util.add_ingredient("assembling-machine-3", "tungsten-carbide", 4)
 util.add_ingredient("chemical-plant", "tungsten-carbide", 2)
 util.add_ingredient("electric-furnace", "tungsten-carbide", 1)
