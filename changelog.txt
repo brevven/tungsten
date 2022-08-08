@@ -3,6 +3,7 @@ Version: 0.7.0
 Date: 2022-08-09
   Features:
     - New optional intermediate: CuW composite. Replaces tungsten plate in some recipes.
+      If not unlocked on settings change, use "TungstenRecipes" (no slashes) command.
     - A few basic recipe tweaks for 248k
   Changes:
     - General balance: Tungsten plates required for piercing ammunition reduced.
