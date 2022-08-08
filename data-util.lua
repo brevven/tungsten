@@ -350,17 +350,18 @@ function util.get_amount(recipe_name, product)
 end
 
 -- Replace one ingredient with another in a recipe
-function util.replace_ingredient(recipe_name, old, new, amount)
+--    Use amount to set an amount. If that amount is a multiplier instead of an exact amount, set multiply true.
+function util.replace_ingredient(recipe_name, old, new, amount, multiply)
   if bypass(recipe_name) then return end
   if data.raw.recipe[recipe_name] and (data.raw.item[new] or data.raw.fluid[new]) then
     me.add_modified(recipe_name)
-    replace_ingredient(data.raw.recipe[recipe_name], old, new, amount)
-    replace_ingredient(data.raw.recipe[recipe_name].normal, old, new, amount)
-    replace_ingredient(data.raw.recipe[recipe_name].expensive, old, new, amount)
+    replace_ingredient(data.raw.recipe[recipe_name], old, new, amount, multiply)
+    replace_ingredient(data.raw.recipe[recipe_name].normal, old, new, amount, multiply)
+    replace_ingredient(data.raw.recipe[recipe_name].expensive, old, new, amount, multiply)
   end
 end
 
-function replace_ingredient(recipe, old, new, amount)
+function replace_ingredient(recipe, old, new, amount, multiply)
 	if recipe ~= nil and recipe.ingredients ~= nil then
     for i, existing in pairs(recipe.ingredients) do
       if existing[1] == new or existing.name == new then
@@ -370,11 +371,23 @@ function replace_ingredient(recipe, old, new, amount)
 		for i, ingredient in pairs(recipe.ingredients) do 
 			if ingredient.name == old then 
         ingredient.name = new 
-        if amount then ingredient.amount = amount end
+        if amount then
+          if multiply then
+            ingredient.amount = amount * ingredient.amount
+          else
+            ingredient.amount = amount
+          end
+        end
       end
 			if ingredient[1] == old then 
         ingredient[1] = new
-        if amount then ingredient[2] = amount end
+        if amount then
+          if multiply then
+            ingredient[2] = amount * ingredient[2]
+          else
+            ingredient[2] = amount
+          end
+        end
       end
 		end
 	end
@@ -891,5 +904,65 @@ function util.create_list()
     end
   end
 end
+
+function util.remove_prior_unlocks(tech, recipe)
+  if data.raw.technology[tech].prerequisites then
+    for i, prerequisite in pairs(data.raw.technology[tech].prerequisites) do
+      remove_prior_unlocks(prerequisite, recipe)
+    end
+  end
+end
+
+function remove_prior_unlocks(tech, recipe)
+  local technology = data.raw.technology[tech]
+  if technology then
+    util.remove_recipe_effect(tech, recipe)
+    if technology.prerequisites then
+      for i, prerequisite in pairs(technology.prerequisites) do
+        -- log("BZZZ removing prior unlocks, checking " .. prerequisite)
+        remove_prior_unlocks(prerequisite, recipe)
+      end
+    end
+  end
+end
+
+function util.replace_ingredients_prior_to(tech, old, new, multiplier)
+  if not data.raw.technology[tech] then
+    log("Not replacing ingredient "..old.." with "..new.." because tech "..tech.." was not found")
+    return
+  end
+  util.remove_prior_unlocks(tech, old)
+  for i, recipe in pairs(data.raw.recipe) do
+    if recipe.enabled and recipe.enabled ~= 'false' then
+      util.replace_ingredient(recipe.name, old, new, multiplier, true)
+    end
+  end
+  if data.raw.technology[tech].prerequisites then
+    for i, prerequisite in pairs(data.raw.technology[tech].prerequisites) do
+      replace_ingredients_prior_to(prerequisite, old, new, multiplier)
+    end
+  end
+end
+
+function replace_ingredients_prior_to(tech, old, new, multiplier)
+  local technology = data.raw.technology[tech]
+  if technology then
+    if technology.effects then
+      for i, effect in pairs(technology.effects) do
+        if effect.type == "unlock-recipe" then
+          -- log("BZZZ replacing " .. old .. " with " .. new .." in " .. effect.recipe)
+          util.replace_ingredient(effect.recipe, old, new, multiplier, true)
+        end
+      end
+    end
+    if technology.prerequisites then
+      for i, prerequisite in pairs(technology.prerequisites) do
+        -- log("BZZZ checking " .. prerequisite)
+        replace_ingredients_prior_to(prerequisite, old, new, multiplier)
+      end
+    end
+  end
+end
+
 
 return util
