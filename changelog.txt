@@ -3,6 +3,7 @@ Version: 0.7.0
 Date: 2022-08-09
   Features:
     - New optional intermediate: CuW composite. Replaces tungsten plate in some recipes.
+    - A few basic recipe tweaks for 248k
   Changes:
 ---------------------------------------------------------------------------------------------------
 Version: 0.6.6
