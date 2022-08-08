@@ -6,6 +6,7 @@ Date: 2022-08-09
       If not unlocked on settings change, use "TungstenRecipes" (no slashes) command.
     - A few basic recipe tweaks for 248k
   Changes:
+    - Rocketry now defaults to not requiring military science packs. Option still exists for now.
     - General balance: Tungsten plates required for piercing ammunition reduced.
     - General balance: Tungsten ingredients required for oil refinery & chemical plant increased.
     - General balance: For some mod loadouts, steel no longer required for assembling machine 2

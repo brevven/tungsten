@@ -17,7 +17,7 @@ data:extend({
 		type = "string-setting",
 		name = "bztungsten-avoid-military",
 		setting_type = "startup",
-		default_value = "no",
+		default_value = "yes",
     allowed_values = {"yes", "no"},
 	},
   {
