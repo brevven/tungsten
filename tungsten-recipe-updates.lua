@@ -1,5 +1,8 @@
 local util = require("__bztungsten__.data-util");
 
+local cuw = "tungsten-plate"
+if util.me.cuw() then cuw = "cuw" end
+
 -- Lamps
 util.add_prerequisite("optics", util.me.tungsten_processing)
 util.set_tech_recipe("optics", {{"automation-science-pack", 1}, {"logistic-science-pack", 1}})
@@ -25,21 +28,24 @@ util.add_ingredient("chemical-plant", "tungsten-carbide", 2)
 util.add_ingredient("electric-furnace", "tungsten-carbide", 1)
 
 -- Electrodes & spark plugs
-util.replace_ingredient("accumulator", "iron-plate", "tungsten-plate")
-util.add_ingredient("oil-refinery", "tungsten-plate", 1)
-util.add_ingredient("chemical-plant", "tungsten-plate", 1)
+util.replace_ingredient("accumulator", "iron-plate", cuw)
+util.add_ingredient("oil-refinery", cuw, 10)
+util.add_ingredient("chemical-plant", cuw, 5)
 util.add_prerequisite("engine", util.me.tungsten_processing)
 util.add_ingredient("engine-unit", "tungsten-plate", 1)
 
 
 -- Hot stuff
 util.add_prerequisite("advanced-materials-processing-2", util.me.tungsten_processing)
-util.replace_some_ingredient("electric-furnace", "steel-plate", 5, "tungsten-plate", 5)
-util.replace_some_ingredient("heat-exchanger", "copper-plate", 50, "tungsten-plate", 50)
-util.replace_some_ingredient("heat-pipe", "copper-plate", 10, "tungsten-plate", 10)
-util.add_ingredient("nuclear-reactor", "tungsten-plate", 500)
-util.add_ingredient("flamethrower-turret", "tungsten-plate", 5)
-util.add_ingredient("flamethrower", "tungsten-plate", 2)
+util.replace_some_ingredient("electric-furnace", "steel-plate", 5, cuw, 5)
+util.replace_some_ingredient("heat-exchanger", "copper-plate", 50, cuw, 50)
+if not util.me.cuw() then
+  -- keep old behvaior
+  util.replace_some_ingredient("heat-pipe", "copper-plate", 10, "tungsten-plate", 10)
+end
+util.add_ingredient("nuclear-reactor", cuw, 500)
+util.add_ingredient("flamethrower-turret", cuw, 5)
+util.add_ingredient("flamethrower", cuw, 2)
 util.add_ingredient("nuclear-fuel", "tungsten-plate", 1)
 
 -- Rocket engine nozzle techs
@@ -64,7 +70,7 @@ util.add_ingredient("atomic-bomb-pu", "tungsten-plate", 1)
 -- Plutonium Energy
 util.add_ingredient("plutonium-atomic-bomb", "rocket-engine-nozzle", 7)
 util.add_ingredient("plutonium-atomic-bomb", "tungsten-plate", 1)
-util.add_ingredient("MOX-reactor", "tungsten-plate", 400)
+util.add_ingredient("MOX-reactor", cuw, 400)
 
 -- Airplanes
 util.add_prerequisite("afterburner", "rocketry")
@@ -106,9 +112,9 @@ if mods["Krastorio2"] then
   util.replace_ingredient("kr-filtration-plant", "engine-unit", "pipe")
 
   -- Heat related
-  util.add_ingredient("kr-fusion-reactor", "tungsten-plate", 350)
-  util.add_ingredient("energy-control-unit", "tungsten-plate", 3)
-  util.replace_some_ingredient("kr-advanced-furnace", "rare-metals", 40, "tungsten-plate", 40)
+  util.add_ingredient("kr-fusion-reactor", cuw, 350)
+  util.add_ingredient("energy-control-unit", cuw, 3)
+  util.replace_some_ingredient("kr-advanced-furnace", "rare-metals", 40, cuw, 40)
 
   -- Other
   if mods.bzzirconium then
@@ -138,12 +144,12 @@ end
 -- SE
 if mods["space-exploration"] then
   -- Heat Shielding
-  util.replace_some_ingredient("se-heat-shielding", "steel-plate", 1, "tungsten-plate", 3)
-  util.replace_some_ingredient("se-heat-shielding-iridium", "stone-tablet", 3, "tungsten-plate", 3)
+  util.replace_some_ingredient("se-heat-shielding", "steel-plate", 1, cuw, 3)
+  util.replace_some_ingredient("se-heat-shielding-iridium", "stone-tablet", 3, cuw, 3)
 
   -- Hot stuff
   util.add_ingredient("se-space-electromagnetics-laboratory", "tungsten-plate", 20)
-  util.add_ingredient("se-space-radiator", "tungsten-plate", 4)
+  util.add_ingredient("se-space-radiator", cuw, 4)
   util.add_ingredient("se-delivery-cannon-weapon-capsule", "tungsten-plate", 10)
 
   -- Data
@@ -153,11 +159,11 @@ if mods["space-exploration"] then
     util.add_ingredient("se-hot-thermodynamics-data", "zirconium-tungstate", 1)
     util.add_product("se-hot-thermodynamics-data", {name="zirconium-tungstate", amount=1, probability=0.50})
   else
-    util.add_ingredient("se-hot-thermodynamics-data", "tungsten-plate", 1)
-    util.add_product("se-hot-thermodynamics-data", {name="tungsten-plate", amount=1, probability=0.50})
+    util.add_ingredient("se-hot-thermodynamics-data", cuw, 1)
+    util.add_product("se-hot-thermodynamics-data", {name= cuw, amount=1, probability=0.50})
   end
-  util.add_ingredient("se-particle-beam-shielding-data", "tungsten-plate", 1)
-  util.add_product("se-particle-beam-shielding-data", {name="tungsten-plate", amount=1, probability=0.20})
+  util.add_ingredient("se-particle-beam-shielding-data", cuw, 1)
+  util.add_product("se-particle-beam-shielding-data", {name= cuw, amount=1, probability=0.20})
 
   --rocket
   util.add_ingredient("se-rocket-science-pack", "rocket-engine-nozzle", 1)
@@ -186,10 +192,10 @@ util.add_ingredient("vehicle-flame-tumbler", "flamethrower", 1)
 
 
 
-util.replace_some_ingredient("superheater", "copper-plate", 10, "tungsten-plate", 10)
+util.replace_some_ingredient("superheater", "copper-plate", 10, cuw, 10)
 
 -- Expanded rocket payloads
-util.add_ingredient("radioisotope-thermoelectric-generater", "tungsten-plate", 100)
+util.add_ingredient("radioisotope-thermoelectric-generater", cuw, 100)
 util.add_ingredient("satellite-thruster", "rocket-engine-nozzle", 12)
 
   
@@ -235,7 +241,7 @@ util.replace_some_ingredient("kj_40kdreadnought", "steel-plate", 25, "tungsten-p
 util.replace_some_ingredient("kj_40klemanruss", "steel-plate", 25, "tungsten-plate", 25)
 
 -- additional turrets
-util.add_ingredient("at-acidthrower-turret", "tungsten-plate", 5)
+util.add_ingredient("at-acidthrower-turret", cuw, 5)
 util.replace_some_ingredient("small-cannon-shell", "steel-plate", 2, "tungsten-plate", 2)
 util.add_ingredient("small-rocket","rocket-engine-nozzle", 1)
 util.add_ingredient("Artillery_mk1_Ammo", "tungsten-plate", 2)
@@ -306,16 +312,16 @@ util.add_ingredient("quarry-mk3", "tungsten-carbide", 20)
 
 
 -- Geothermal
-util.replace_some_ingredient("geothermal-heat-exchanger", "copper-plate", 120, "tungsten-plate", 120)
+util.replace_some_ingredient("geothermal-heat-exchanger", "copper-plate", 120, cuw, 120)
 
 -- FastFurnaces
 util.replace_some_ingredient("reika-fast-electric-mining-drill", "steel-plate", 10, "tungsten-carbide", 10)
 
 -- Nuclear furnaces
-util.add_ingredient("nuclear-furnace-3", "tungsten-plate", 200)
+util.add_ingredient("nuclear-furnace-3", cuw, 200)
 
 -- Mega Furnace
-util.add_ingredient("mega-furnace", "tungsten-plate", 5)
+util.add_ingredient("mega-furnace", cuw, 5)
 
 -- Mundas
 util.add_ingredient("munda_big_machine", "tungsten-carbide", 32)
@@ -323,8 +329,8 @@ util.add_prerequisite("munda_big_machine", util.me.tungsten_processing)
 
 
 -- Realistic reactors
-util.add_ingredient("realistic-reactor", "tungsten-plate", 500)
-util.add_ingredient("breeder-reactor", "tungsten-plate", 500)
+util.add_ingredient("realistic-reactor", cuw, 500)
+util.add_ingredient("breeder-reactor", cuw, 500)
 
 
 
@@ -373,18 +379,21 @@ util.add_ingredient("bob-area-mining-drill-2", "tungsten-carbide", 3)
 
 
 -- RFP
-util.add_ingredient("rfp-pipe", "tungsten-plate", 2)
-util.add_ingredient("rfp-pipe-to-ground", "tungsten-plate", 6)
-util.add_ingredient("rfp-pump", "tungsten-plate", 5)
-util.add_ingredient("rfp-heater", "tungsten-plate", 500)
-util.add_ingredient("rfp-heat-exchanger", "tungsten-plate", 200)
-util.add_ingredient("rfp-aneutronic-reactor", "tungsten-plate", 5000)
-util.add_ingredient("rfp-direct-energy-converter", "tungsten-plate", 500)
-util.add_ingredient("rfp-particle-accelerator", "tungsten-plate", 1000)
-util.add_ingredient("rfp-particle-decelerator", "tungsten-plate", 1000)
-util.add_ingredient("rfp-antimatter-reactor", "tungsten-plate", 2000)
-util.add_ingredient("rfw-plasma-thrower", "tungsten-plate", 10)
-util.add_ingredient("rfw-plasma-thrower-turret", "tungsten-plate", 20)
+if not util.me.cuw() then
+  -- keep old behvaior
+  util.add_ingredient("rfp-pipe", "tungsten-plate", 2)
+  util.add_ingredient("rfp-pipe-to-ground", "tungsten-plate", 6)
+end
+util.add_ingredient("rfp-pump", cuw, 5)
+util.add_ingredient("rfp-heater", cuw, 500)
+util.add_ingredient("rfp-heat-exchanger", cuw, 200)
+util.add_ingredient("rfp-aneutronic-reactor", cuw, 5000)
+util.add_ingredient("rfp-direct-energy-converter", cuw, 500)
+util.add_ingredient("rfp-particle-accelerator", cuw, 1000)
+util.add_ingredient("rfp-particle-decelerator", cuw, 1000)
+util.add_ingredient("rfp-antimatter-reactor", cuw, 2000)
+util.add_ingredient("rfw-plasma-thrower", cuw, 10)
+util.add_ingredient("rfw-plasma-thrower-turret", cuw, 20)
 util.add_ingredient("rfw-thermonuclear-bomb", "rocket-engine-nozzle", 7)
 util.add_ingredient("rfw-thermonuclear-artillery-shell", "rocket-engine-nozzle", 7)
 util.add_ingredient("rfw-fusion-bomb", "rocket-engine-nozzle", 7)

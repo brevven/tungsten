@@ -5,6 +5,9 @@ if mods["space-exploration"] then
   se_delivery_cannon_recipes["tungsten-ore"] = {name= "tungsten-ore"}
   se_delivery_cannon_recipes["tungsten-plate"] = {name= "tungsten-plate"}
   se_delivery_cannon_recipes["tungsten-carbide"] = {name= "tungsten-carbide"}
+  if util.me.cuw() then
+    se_delivery_cannon_recipes["cuw"] = {name= "cuw"}
+  end
 
   data:extend({
   {
@@ -22,7 +25,7 @@ if mods["space-exploration"] then
   }
   })
 
-if string.sub(mods["space-exploration"], 1, 3) == "0.6" then
+if string.sub(mods["space-exploration"], 1, 3) >= "0.6" then
   data:extend({
   {
     type = "item-subgroup",
@@ -33,6 +36,7 @@ if string.sub(mods["space-exploration"], 1, 3) == "0.6" then
   })
   util.set_item_subgroup("tungsten-plate", "tungsten")
   util.set_item_subgroup("tungsten-carbide", "tungsten")
+  util.set_item_subgroup("cuw", "tungsten")
   data:extend({
   {
     type = "item",

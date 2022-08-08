@@ -206,6 +206,35 @@ data:extend({
   }
 })
 
+if util.me.cuw() then
+  data:extend({
+    {
+      type = "item",
+      name = "cuw",
+      icon = "__bztungsten__/graphics/icons/cuw.png",
+      icon_size = 128,
+      subgroup = "raw-material",
+      order = "z[cuw]",
+      stack_size = util.get_stack_size(100),
+    },
+    {
+      type = "recipe",
+      name = "cuw",
+      category = "advanced-crafting",
+      order = "z[cuw]",
+      enabled = false,
+      energy_required = 80,
+      ingredients = {
+        {"tungsten-plate", 15},
+        {"copper-plate", 5},
+      },
+      results = {{"cuw", 20}},
+    },
+  })
+  util.add_unlock(util.me.tungsten_processing, "cuw")
+end
+
+
 
 if mods.DoubleFurnace then
 data:extend({

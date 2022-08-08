@@ -11,6 +11,12 @@ if mods.bobplates then
   me.tungsten_carbide_recipe = "bz-tungsten-carbide"
 end
 
+function me.cuw()
+  if me.get_setting("bz-all-intermediates") then return true end
+  return me.get_setting("bztungsten-more-intermediates") == "cuw"
+end
+
+
 function me.starting_patch()
   return mods["Krastorio2"] or me.get_setting("bztungsten-starting-patch")
 end
