@@ -170,7 +170,11 @@ if mods["space-exploration"] then
   util.add_product("se-particle-beam-shielding-data", {name= cuw, amount=1, probability=0.20})
 
   --rocket
-  util.add_ingredient("se-rocket-science-pack", "rocket-engine-nozzle", 1)
+  if mods.Krastorio2 and string.sub(mods["space-exploration"], 1, 3) >= "0.6" then
+    util.replace_ingredient("se-rocket-science-pack", "speed-module", "rocket-engine-nozzle", 8)
+  else
+    util.add_ingredient("se-rocket-science-pack", "rocket-engine-nozzle", 1)
+  end
   util.add_ingredient("se-spaceship-rocket-engine", "rocket-engine-nozzle", 4)
   util.add_ingredient("se-cargo-rocket-section", "rocket-engine-nozzle", 5)
   util.add_ingredient("se-cargo-rocket-section-beryllium", "rocket-engine-nozzle", 5)
