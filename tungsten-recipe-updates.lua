@@ -28,13 +28,16 @@ else
   util.replace_some_ingredient("assembling-machine-2", "steel-plate", 1, "tungsten-carbide", 1)
 end
 util.add_ingredient("assembling-machine-3", "tungsten-carbide", 4)
-util.add_ingredient("chemical-plant", "tungsten-carbide", 2)
 util.add_ingredient("electric-furnace", "tungsten-carbide", 1)
+
+if not mods.MoreScience or data.raw["assembling-machine"]["basic-chemical-plant"] then
+  util.add_ingredient("chemical-plant", "tungsten-carbide", 2)
+  util.add_ingredient("chemical-plant", cuw, 5)
+end
 
 -- Electrodes & spark plugs
 util.replace_ingredient("accumulator", "iron-plate", cuw)
 util.add_ingredient("oil-refinery", cuw, 10)
-util.add_ingredient("chemical-plant", cuw, 5)
 util.add_prerequisite("engine", util.me.tungsten_processing)
 util.add_ingredient("engine-unit", "tungsten-plate", 1)
 
