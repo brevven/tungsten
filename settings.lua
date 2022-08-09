@@ -51,5 +51,18 @@ data:extend({
 		default_value = 10,
     minimum_value = 1,
     maximum_value = 1000,
+    order = "aga",
 	},
 })
+
+if mods["space-exploration"] and string.sub(mods["space-exploration"], 1, 3) >= "0.6" then
+data:extend({
+  {
+		type = "bool-setting",
+		name = "bztungsten-se-sintering",
+		setting_type = "startup",
+		default_value = false,
+    order = "acm",
+  }
+})
+end

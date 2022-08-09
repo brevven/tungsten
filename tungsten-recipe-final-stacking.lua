@@ -16,6 +16,9 @@ if deadlock then
   if util.me.cuw() then
     deadlock.add_stack("cuw", "__bztungsten__/graphics/icons/stacked/cuw-stacked.png" , "deadlock-stacking-2", 128)
   end
+  if data.raw.item["tungsten-powder"] then
+    deadlock.add_stack("tungsten-powder", nil, "deadlock-stacking-2", nil)
+  end
 end
 
 -- Deadlock crating recipes
@@ -32,6 +35,9 @@ if deadlock_crating then
   end
   if util.me.cuw() then
     deadlock_crating.add_crate("cuw", "deadlock-crating-2")
+  end
+  if data.raw.item["tungsten-powder"] then
+    deadlock_crating.add_crate("tungsten-powder", "deadlock-crating-2")
   end
 end
 

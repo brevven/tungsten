@@ -46,7 +46,15 @@ if string.sub(mods["space-exploration"], 1, 3) >= "0.6" then
     stack_size = 50,
     subgroup = "tungsten",
   },
-  {
+
+  util.me.sinter() and {
+    type = "item",
+    name = "tungsten-powder",
+    icons = {{icon = "__bztungsten__/graphics/icons/tungsten-powder.png", icon_size = 64, icon_mipmaps = 3}},
+    order = "b-a-x",
+    subgroup = "tungsten",
+    stack_size = util.get_stack_size(200),
+  } or {
     type = "fluid",
     name = "molten-tungsten",
     default_temperature = 3422,
@@ -60,7 +68,24 @@ if string.sub(mods["space-exploration"], 1, 3) >= "0.6" then
     auto_barrel = false,
     subgroup = "fluid",
   },
-  {
+  util.me.sinter() and {
+    type = "recipe",
+    category = "smelting",
+    name = "tungsten-powder",
+    subgroup = "tungsten",
+    results = {
+      {type = "item", name = "tungsten-powder", amount = mods.Krastorio2 and 30 or 36},
+    },
+    energy_required = 60,
+    ingredients = {
+      {name = mods.Krastorio2 and "enriched-tungsten" or "tungsten-ore", amount = 24},
+      {type = "fluid", name = "se-pyroflux", amount = 10},
+    },
+    enabled = false,
+    always_show_made_in = true,
+    allow_as_intermediate = false,
+    order = "a-a"
+  } or {
     type = "recipe",
     category = "smelting",
     name = "molten-tungsten",
@@ -85,6 +110,7 @@ if string.sub(mods["space-exploration"], 1, 3) >= "0.6" then
     results = {{"tungsten-ingot", 1}},
     energy_required = 18,
     ingredients = {
+      util.me.sinter() and {type = "item", name = "tungsten-powder", amount = 15} or
       {type = "fluid", name = "molten-tungsten", amount = 375},
     },
     enabled = false,
@@ -97,12 +123,15 @@ if string.sub(mods["space-exploration"], 1, 3) >= "0.6" then
     category = "casting",
     icons = {
       {icon = "__bztungsten__/graphics/icons/tungsten-carbide.png", icon_size = 128},
+      util.me.sinter() and
+      {icon = "__bztungsten__/graphics/icons/tungsten-powder.png", icon_size = 64, scale = 0.25, shift = {-8, -8}} or
       {icon = "__bztungsten__/graphics/icons/molten-tungsten.png", icon_size = 128, scale = 0.125, shift = {-8, -8}},
     },
     results = {{"tungsten-carbide", 4}},
     energy_required = 40,
     ingredients = {
       data.raw.item["coke"] and {"coke", 8} or {"coal", 16},
+      util.me.sinter() and {type = "item", name = "tungsten-powder", amount = 15} or
       {type = "fluid", name = "molten-tungsten", amount = 375},
     },
     enabled = false,
@@ -131,6 +160,7 @@ if string.sub(mods["space-exploration"], 1, 3) >= "0.6" then
   },
   })
   util.add_effect("se-pyroflux-smelting", {type = "unlock-recipe", recipe= "molten-tungsten"})
+  util.add_effect("se-pyroflux-smelting", {type = "unlock-recipe", recipe= "tungsten-powder"})
   util.add_effect("se-pyroflux-smelting", {type = "unlock-recipe", recipe= "tungsten-ingot"})
   util.add_effect("se-pyroflux-smelting", {type = "unlock-recipe", recipe= "tungsten-ingot-to-plate"})
   util.add_effect("se-pyroflux-smelting", {type = "unlock-recipe", recipe= "tungsten-carbide-casting"})

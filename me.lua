@@ -16,6 +16,10 @@ function me.cuw()
   return me.get_setting("bztungsten-more-intermediates") == "cuw"
 end
 
+function me.sinter()
+  return me.get_setting("bztungsten-se-sintering")
+end
+
 
 function me.starting_patch()
   return mods["Krastorio2"] or me.get_setting("bztungsten-starting-patch")

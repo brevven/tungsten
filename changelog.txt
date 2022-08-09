@@ -4,6 +4,7 @@ Date: 2022-08-09
   Features:
     - New optional intermediate: Copper tungsten, replaces tungsten plate in some recipes.
       If not unlocked on settings change, use "TungstenRecipes" (no slashes) command.
+    - Space Exploration: New option to use tungsten powder instead of molten tungsten.
     - A few basic recipe tweaks for 248k
   Changes:
     - Rocketry now defaults to not requiring military science packs. Option still exists for now.
