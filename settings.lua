@@ -5,6 +5,7 @@ data:extend({
 		setting_type = "startup",
 		default_value = "",
     allow_blank = true,
+    order = "aba",
 	},
   {
 		type = "string-setting",
@@ -12,6 +13,7 @@ data:extend({
 		setting_type = "startup",
 		default_value = "no",
     allowed_values = {"cuw", "no"},
+    order = "aca",
 	},
   {
 		type = "string-setting",
@@ -19,6 +21,7 @@ data:extend({
 		setting_type = "startup",
 		default_value = "yes",
     allowed_values = {"yes", "no"},
+    order = "ada",
 	},
   {
 		type = "string-setting",
@@ -27,6 +30,7 @@ data:extend({
 		default_value = "no",
     allowed_values = {"yes", "no"},
     hidden = not not (mods.Krastorio2 or mods.bzfoundry),
+    order = "aea",
 	},
   {
 		type = "bool-setting",
@@ -35,6 +39,7 @@ data:extend({
 		default_value = false,
     allowed_values = {"yes", "no"},
     hidden = not not mods.Krastorio2,
+    order = "afa",
 	},
   mods["Krastorio2"] and
   {
@@ -44,6 +49,7 @@ data:extend({
 		default_value = 1,
     minimum_value = 1,
     maximum_value = 1000,
+    order = "aga",
 	} or {
 		type = "int-setting",
 		name = "bztungsten-mining-fluid-amount",
