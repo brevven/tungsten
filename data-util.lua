@@ -23,6 +23,12 @@ else
   util.titanium_processing = "titanium-processing"
 end
 
+function util.se6()
+  return mods["space-exploration"] and mods["space-exploration"] >= "0.6" 
+end
+
+util.cablesg = util.se6() and "electronic" or "cable"
+
 function get_setting(name)
   if settings.startup[name] == nil then
     return nil
@@ -937,7 +943,10 @@ function util.replace_ingredients_prior_to(tech, old, new, multiplier)
   end
   util.remove_prior_unlocks(tech, old)
   for i, recipe in pairs(data.raw.recipe) do
-    if recipe.enabled and recipe.enabled ~= 'false' then
+    if (recipe.enabled and recipe.enabled ~= 'false')
+      and (not recipe.hidden or recipe.hidden == 'true') -- probably don't want to change hidden recipes
+    then
+      -- log("BZZZ due to 'enabled' replacing " .. old .. " with " .. new .." in " .. recipe.name)
       util.replace_ingredient(recipe.name, old, new, multiplier, true)
     end
   end
