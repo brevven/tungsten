@@ -460,3 +460,7 @@ util.add_ingredient("oil_rig", "tungsten-carbide", 5)
 util.replace_ingredient("penetrator-shell", "steel-plate", "tungsten-plate")
 util.add_to_ingredient("penetrator-shell", "tungsten-plate", 2)
 util.replace_ingredient("basic-ammo-crate", "copper-plate", "tungsten-plate")
+
+if mods["expanded-rocket-paylods"] then
+  util.replace_some_ingredient("advanced-assembler", "steel", 100, "tungsten-carbide", 100)
+end

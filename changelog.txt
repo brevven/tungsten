@@ -1,9 +1,10 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.7.2
-Date: 2022-08-12
+Date: 2022-08-13
   Changes:
     - AAI: Oil processing now depends on tungsten processing. Added new pumpjack tech to enable
       pumpjacks prior to other oil processing recipes.
+    - Some minor modded recipe updates
 ---------------------------------------------------------------------------------------------------
 Version: 0.7.1
 Date: 2022-08-10
