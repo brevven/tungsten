@@ -945,6 +945,7 @@ function util.replace_ingredients_prior_to(tech, old, new, multiplier)
   for i, recipe in pairs(data.raw.recipe) do
     if (recipe.enabled and recipe.enabled ~= 'false')
       and (not recipe.hidden or recipe.hidden == 'true') -- probably don't want to change hidden recipes
+      and string.sub(recipe.name, 1, 3) ~= 'se-' -- have to exlude SE in general :(
     then
       -- log("BZZZ due to 'enabled' replacing " .. old .. " with " .. new .." in " .. recipe.name)
       util.replace_ingredient(recipe.name, old, new, multiplier, true)

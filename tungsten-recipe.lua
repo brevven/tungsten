@@ -139,6 +139,37 @@ data:extend({
   } or nil,
 })
 
+if mods["aai-industry"] and not data.raw.technology["pumpjack"] then
+data:extend({
+  {
+    type = "technology",
+    name = "pumpjack",
+    icons = {
+      { icon = data.raw.technology["oil-processing"].icon, icon_size=data.raw.technology["oil-processing"].icon_size },
+    },
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "pumpjack",
+      },
+    },
+    unit =
+    {
+      count = 25,
+      ingredients = 
+          {
+            {"automation-science-pack", 1},
+            {"logistic-science-pack", 1}
+          },
+      time = 30,
+    },
+    prerequisites = {"fluid-handling"},
+    order = "b-b",
+  },
+})
+end
+
 data:extend({
   {
     type = "recipe",
