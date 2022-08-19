@@ -8,24 +8,10 @@ if mods["space-exploration"] then
   if util.me.cuw() then
     se_delivery_cannon_recipes["cuw"] = {name= "cuw"}
   end
-
-  data:extend({
-  {
-    type = "recipe",
-    icons = {
-      { icon = "__base__/graphics/icons/landfill.png", icon_size = 64, icon_mipmaps = 3 },
-      { icon = "__bztungsten__/graphics/icons/tungsten-ore.png", icon_size = 64, scale = 0.25},
-    },
-    name = "landfill-tungsten-ore",
-    category = "hard-recycling",
-    order = "z-b-tungsten",
-    subgroup = "terrain",
-    result = "landfill",
-    ingredients = {{"tungsten-ore", 50}},
-  }
-  })
+  util.se_landfill({ore="tungsten-ore"})
 
 if string.sub(mods["space-exploration"], 1, 3) >= "0.6" then
+  util.se_matter({ore="tungsten-ore", energy_required=2, quant_out=10, stream_out=60})
   data:extend({
   {
     type = "item-subgroup",
