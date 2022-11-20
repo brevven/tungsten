@@ -20,3 +20,6 @@ if mods.Asteroid_Mining then
   amfunc.addtype("tungsten-ore", {a = 0,r = 0.55,g = 0.60,b = 0.5})
 end
 
+if mods.Krastorio2 then
+  util.remove_prerequisite("kr-fluids-chemistry", "engine")
+end
