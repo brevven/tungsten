@@ -23,3 +23,5 @@ end
 if mods.Krastorio2 then
   util.remove_prerequisite("kr-fluids-chemistry", "engine")
 end
+
+require("modules")
