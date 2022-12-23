@@ -3,6 +3,8 @@ Version: 0.7.6
 Date: 2022-11-20
   Fixes:
     - Prod mod compatibility with K2+GDIW etc
+  Localization:
+    - DE updates thanks to NathanU
 ---------------------------------------------------------------------------------------------------
 Version: 0.7.5
 Date: 2022-11-20
