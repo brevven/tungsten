@@ -4,8 +4,9 @@ Date: 2022-12-24
   Fixes:
     - Prod mod compatibility with K2+GDIW etc
   Localization:
-    - DE updates thanks to NathanU
-    - JA updates thanks to Sakuro
+    - de updates thanks to NathanU
+    - ja updates thanks to Sakuro
+    - zh thanks to sunnytan53
 ---------------------------------------------------------------------------------------------------
 Version: 0.7.5
 Date: 2022-11-20
