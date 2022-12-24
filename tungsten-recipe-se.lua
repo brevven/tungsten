@@ -160,6 +160,7 @@ if string.sub(mods["space-exploration"], 1, 3) >= "0.6" then
     data.raw.recipe["enriched-tungsten-plate"].order= "d[tungsten-plate]"
     se_delivery_cannon_recipes["enriched-tungsten"] = {name= "enriched-tungsten"}
   end
+  se_delivery_cannon_recipes["tungsten-ingot"] = {name= "tungsten-ingot"}
 
 else
   data.raw.item["tungsten-plate"].subgroup = "plates"
