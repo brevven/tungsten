@@ -3,6 +3,7 @@ Version: 0.7.6
 Date: 2022-12-24
   Fixes:
     - Prod mod compatibility with K2+GDIW etc
+    - Fix mod load error with AAI-Industry + Bob Metals + Tungsten
   Localization:
     - de updates thanks to NathanU
     - ja updates thanks to Sakuro

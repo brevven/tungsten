@@ -45,3 +45,8 @@ util.remove_prerequisite("automated-scrap-rail-transportation", "optics")
 util.remove_ingredient("train-stop-scrap", "small-lamp")
 util.remove_ingredient("rail-signal-scrap", "small-lamp")
 util.remove_ingredient("rail-chain-signal-scrap", "small-lamp")
+
+
+if mods["aai-industry"] and mods.bobplates then
+  util.remove_prerequisite("tungsten-processing", "chemical-science-pack")
+end
