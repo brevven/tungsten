@@ -27,3 +27,4 @@ See changelog.txt
 - [Pergamum663](https://github.com/Pergamum663) (ru)
 - [NathanU](https://github.com/NathanU) (de)
 - [sunnytan53](https://github.com/sunnytan53) (zh-CN)
+- [CV514](https://github.com/CV514) (ru)
