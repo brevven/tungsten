@@ -4,6 +4,13 @@ me.name = "bztungsten"
 me.tungsten_ore = "tungsten-ore"
 me.tungsten_plate = "tungsten-plate"
 me.tungsten_carbide_recipe = "tungsten-carbide"
+me.recipes = {me.tungsten_plate, me.tungsten_carbide_recipe, "rocket-engine-nozzle",
+           "enriched-tungsten-plate",
+           "enriched-tungsten",
+           "tungsten-smelting-vulcanite",
+           "molten-tungsten",
+           "enriched-tungsten-smelting-vulcanite",
+           "tungsten-carbide-coal",}
 
 me.tungsten_processing = "tungsten-processing"
 if mods.bobplates then
@@ -41,7 +48,6 @@ function me.get_setting(name)
   end
   return settings.startup[name].value
 end
-
 me.bypass = {}
 if me.get_setting(me.name.."-recipe-bypass") then 
   for recipe in string.gmatch(me.get_setting(me.name.."-recipe-bypass"), '[^",%s]+') do
