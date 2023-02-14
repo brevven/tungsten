@@ -10,7 +10,7 @@ me.recipes = {me.tungsten_plate, me.tungsten_carbide_recipe, "rocket-engine-nozz
            "tungsten-smelting-vulcanite",
            "molten-tungsten",
            "enriched-tungsten-smelting-vulcanite",
-           "tungsten-carbide-coal",}
+           "tungsten-carbide-coal","cuw","tungsten-powder","tungsten-ingot","tungsten-carbide-casting","tungsten-ingot-to-plate",}
 
 me.tungsten_processing = "tungsten-processing"
 if mods.bobplates then
