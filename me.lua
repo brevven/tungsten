@@ -8,7 +8,7 @@ me.recipes = {me.tungsten_plate, me.tungsten_carbide_recipe, "rocket-engine-nozz
            "enriched-tungsten-plate",
            "enriched-tungsten",
            "tungsten-smelting-vulcanite",
-           "molten-tungsten",
+           "molten-tungsten", "tungsten-powder",
            "enriched-tungsten-smelting-vulcanite",
            "tungsten-carbide-coal",}
 

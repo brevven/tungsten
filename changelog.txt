@@ -3,6 +3,7 @@ Version: 0.7.8
 Date: 2023-02-12
   Changes:
     - Crafting efficiency improvements, thanks to nihilistzsche
+    - SE: Optional tungsten powder for sintering can use productivity modules
 ---------------------------------------------------------------------------------------------------
 Version: 0.7.7
 Date: 2023-01-17
