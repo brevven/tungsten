@@ -32,6 +32,14 @@ function me.starting_patch()
   return mods["Krastorio2"] or me.get_setting("bztungsten-starting-patch")
 end
 
+
+function me.fluid() 
+  if mods["Krastorio2"] then
+    return me.get_setting("bztungsten-mining-fluid-k2")
+  end
+  return "water"
+end
+
 function me.fluid_amount()
   if mods["Krastorio2"] then
     local amt = me.get_setting("bztungsten-mining-fluid-amount-k2")

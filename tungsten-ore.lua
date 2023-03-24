@@ -29,7 +29,7 @@ data:extend({
       mining_particle = "tungsten-ore-particle",
       mining_time = 2,
       fluid_amount = util.me.fluid_amount(),
-      required_fluid=(mods["Krastorio2"] and "mineral-water" or "water"),
+      required_fluid= util.me.fluid(),
       result = "tungsten-ore"
     },
     collision_box = {{ -0.1, -0.1}, {0.1, 0.1}},
