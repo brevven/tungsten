@@ -177,6 +177,7 @@ if util.me.get_setting("bztungsten-advanced-carbon-furnace") == "yes" and not mo
         effect = "flicker",
         animation =
         {
+          animation_speed = 0.25,
           filename = "__base__/graphics/entity/steel-furnace/steel-furnace-fire.png",
           priority = "high",
           line_length = 8,
@@ -187,6 +188,7 @@ if util.me.get_setting("bztungsten-advanced-carbon-furnace") == "yes" and not mo
           shift = futil.by_pixel(-0.5, 6),
           hr_version =
           {
+            animation_speed = 0.25,
             filename = "__base__/graphics/entity/steel-furnace/hr-steel-furnace-fire.png",
             priority = "high",
             line_length = 8,
