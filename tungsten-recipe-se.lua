@@ -20,6 +20,7 @@ if string.sub(mods["space-exploration"], 1, 3) >= "0.6" then
     order = "a-h-z-a",
   }
   })
+  util.set_item_subgroup("tungsten-ore", "tungsten")
   util.set_item_subgroup("tungsten-plate", "tungsten")
   util.set_item_subgroup("tungsten-carbide", "tungsten")
   util.set_item_subgroup("cuw", "tungsten")
