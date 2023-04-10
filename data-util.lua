@@ -130,33 +130,35 @@ function util.k2matter(params)
   if not params.k2matter.minimum_conversion_quantity then
     params.k2matter.minimum_conversion_quantity = 10
   end
-  data:extend(
-      {
+  if not data.raw.technology[params.k2matter.unlocked_by_technology] then
+    data:extend(
         {
-          type = "technology",
-          name = params.k2matter.unlocked_by_technology,
-          icons =
           {
+            type = "technology",
+            name = params.k2matter.unlocked_by_technology,
+            icons =
             {
-              icon = util.k2assets().."/technologies/matter-"..params.k2baseicon..".png",
-              icon_size = 256,
+              {
+                icon = util.k2assets().."/technologies/matter-"..params.k2baseicon..".png",
+                icon_size = 256,
+              },
+              params.icon,
             },
-            params.icon,
+            prerequisites = {"kr-matter-processing"},
+            unit =
+            {
+              count = 350,
+              ingredients =
+              {
+                {"production-science-pack", 1},
+                {"utility-science-pack", 1},
+                {"matter-tech-card", 1}
+              },
+              time = 45,
+            }
           },
-          prerequisites = {"kr-matter-processing"},
-          unit =
-          {
-            count = 350,
-            ingredients =
-            {
-              {"production-science-pack", 1},
-              {"utility-science-pack", 1},
-              {"matter-tech-card", 1}
-            },
-            time = 45,
-          }
-        },
-      })
+        })
+  end
   matter.createMatterRecipe(params.k2matter)
 end
 
@@ -533,13 +535,16 @@ end
 
 function add_product(recipe, product)
   if recipe ~= nil then
-    if not recipe.normal then
-      if recipe.results == nil then
-        recipe.results = {{recipe.result, recipe.result_count and recipe.result_count or 1}}
+    if (product[1] and data.raw.item[product[1]]) or 
+    (product.name and data.raw[product.type][product.name]) then
+      if not recipe.normal then
+        if recipe.results == nil then
+          recipe.results = {{recipe.result, recipe.result_count and recipe.result_count or 1}}
+        end
+        recipe.result = nil
+        recipe.result_count = nil
+        table.insert(recipe.results, product)
       end
-      recipe.result = nil
-      recipe.result_count = nil
-      table.insert(recipe.results, product)
     end
   end
 end
@@ -1044,6 +1049,13 @@ function util.add_icon(recipe_name, icon, options)
           icon=data.raw.item[data.raw.recipe[recipe_name].result].icon,
           icon_size=data.raw.item[data.raw.recipe[recipe_name].result].icon_size,
           icon_mipmaps=data.raw.item[data.raw.recipe[recipe_name].result].icon_mipmaps,
+        }}
+      elseif data.raw.recipe[recipe_name].normal and
+      data.raw.item[data.raw.recipe[recipe_name].normal.result] then
+        data.raw.recipe[recipe_name].icons = {{
+          icon=data.raw.item[data.raw.recipe[recipe_name].normal.result].icon,
+          icon_size=data.raw.item[data.raw.recipe[recipe_name].normal.result].icon_size,
+          icon_mipmaps=data.raw.item[data.raw.recipe[recipe_name].normal.result].icon_mipmaps,
         }}
       end
       data.raw.recipe[recipe_name].icon = nil
