@@ -161,16 +161,16 @@ if mods["space-exploration"] then
 
   -- Data
   util.add_ingredient("se-electromagnetic-field-data", "tungsten-plate", 1)
-  util.add_product("se-electromagnetic-field-data", {name="tungsten-plate", amount=1, probability=0.95})
+  util.add_product("se-electromagnetic-field-data", {type="item", name="tungsten-plate", amount=1, probability=0.95})
   if mods.bzzirconium then
     util.add_ingredient("se-hot-thermodynamics-data", "zirconium-tungstate", 1)
-    util.add_product("se-hot-thermodynamics-data", {name="zirconium-tungstate", amount=1, probability=0.50})
+    util.add_product("se-hot-thermodynamics-data", {type="item", name="zirconium-tungstate", amount=1, probability=0.50})
   else
     util.add_ingredient("se-hot-thermodynamics-data", cuw, 1)
-    util.add_product("se-hot-thermodynamics-data", {name= cuw, amount=1, probability=0.50})
+    util.add_product("se-hot-thermodynamics-data", {type="item", name= cuw, amount=1, probability=0.50})
   end
   util.add_ingredient("se-particle-beam-shielding-data", cuw, 1)
-  util.add_product("se-particle-beam-shielding-data", {name= cuw, amount=1, probability=0.20})
+  util.add_product("se-particle-beam-shielding-data", {type="item", name= cuw, amount=1, probability=0.20})
 
   --rocket
   if mods.Krastorio2 and string.sub(mods["space-exploration"], 1, 3) >= "0.6" then
