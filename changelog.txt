@@ -5,6 +5,7 @@ Date: 2023-04-10
     - Double furnace: fixed to work with double furnace again (broken in 7.10)
   Changes:
     - Trees will spawn less often on resources.
+    - SE+K2: Matter deconversion requires stabilizer now
 ---------------------------------------------------------------------------------------------------
 Version: 0.7.10
 Date: 2023-03-25
