@@ -13,7 +13,8 @@ me.recipes = {me.tungsten_plate, me.tungsten_carbide_recipe, "rocket-engine-nozz
            "tungsten-carbide-coal",}
 
 me.tungsten_processing = "tungsten-processing"
-if mods.bobplates then
+
+if mods and mods.bobplates then
   me.tungsten_processing = "bz-tungsten-processing"
   me.tungsten_carbide_recipe = "bz-tungsten-carbide"
 end
