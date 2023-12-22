@@ -55,5 +55,6 @@ util.remove_ingredient("rail-chain-signal-scrap", "small-lamp")
 
 
 if mods["aai-industry"] and mods.bobplates then
-  util.remove_prerequisite("tungsten-processing", "chemical-science-pack")
+  util.remove_prerequisite("oil-processing", "tungsten-processing")
+  util.add_prerequisite("oil-processing", "bz-tungsten-processing")
 end
