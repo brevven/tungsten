@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.7.12
+Date: 2023-12-22
+  Fixes:
+    - Fix a softlock when used with Bob's MCI (bobplates) thanks to KiwiHawk
+  Localization:
+    - ja updates thanks to Sakuro
+---------------------------------------------------------------------------------------------------
 Version: 0.7.11
 Date: 2023-04-10
   Fixes:
