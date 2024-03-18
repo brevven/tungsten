@@ -30,7 +30,8 @@ end
 util.add_ingredient("assembling-machine-3", "tungsten-carbide", 4)
 util.add_ingredient("electric-furnace", "tungsten-carbide", 1)
 
-if not mods.MoreScience or data.raw["assembling-machine"]["basic-chemical-plant"] then
+if (not mods.MoreScience or data.raw["assembling-machine"]["basic-chemical-plant"])
+and (not (mods.omnimatter and mods.Krastorio2)) then
   util.add_ingredient("chemical-plant", "tungsten-carbide", 2)
   util.add_ingredient("chemical-plant", cuw, 5)
 end
